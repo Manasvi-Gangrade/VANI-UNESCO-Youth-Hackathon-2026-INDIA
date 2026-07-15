@@ -27,14 +27,14 @@ const TEAM = [
   {
     name: "Manasvi Gangrade",
     role: "Team Lead",
-    blurb: "Research, strategy, and overall project direction.",
+    blurb: "Heyyaaa I am Manasvi, and I contributed to the strategy, and overall project direction, Development and Designing.",
     featured: true,
     tone: "bg-sunny",
   },
   {
     name: "Suhani Sharma",
     role: "Co-Lead",
-    blurb: "Concept development, content design, and presentation.",
+    blurb: "Hello ! I am Suhani and I worked with Concept development, content design, and presentation.",
     featured: false,
     tone: "bg-teal",
   },
@@ -43,27 +43,27 @@ const TEAM = [
 const CHAT = [
   {
     side: "left" as const,
-    name: "Suhani",
+    name: "Manasvi",
     text: "Okay wait, be honest — when's the last time you actually double-checked something before forwarding it to the family group?",
   },
   {
     side: "right" as const,
-    name: "Manasvi",
+    name: "Suhani",
     text: "...never, if I'm being fully honest. If it looks urgent enough, I just send it.",
   },
   {
     side: "left" as const,
-    name: "Suhani",
+    name: "Manasvi",
     text: "Exactly. And we're the ones who are supposed to know better.",
   },
   {
     side: "right" as const,
-    name: "Manasvi",
+    name: "Suhani",
     text: "So the problem isn't that people don't know what misinformation is. It's that nobody's ever tested us in the moment it actually matters.",
   },
   {
     side: "left" as const,
-    name: "Suhani",
+    name: "Manasvi",
     text: "That's it. That's the whole project right there.",
   },
 ];

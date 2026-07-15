@@ -10,6 +10,7 @@ import {
   Github,
   Link2,
   FileText,
+  ExternalLink,
 } from "lucide-react";
 
 import heroImg from "@/assets/hero-vani.jpg";
@@ -118,13 +119,35 @@ const STATS = [
 ];
 
 const DELIVERABLES = [
-  { icon: <Video className="h-6 w-6" />, title: "Pitch Video", note: "The 3-minute story." },
-  { icon: <Github className="h-6 w-6" />, title: "MVP POC", note: "Open GitHub code repo." },
-  { icon: <Link2 className="h-6 w-6" />, title: "Deployed URL", note: "This site + simulator." },
+  {
+    icon: <Video className="h-6 w-6" />,
+    title: "Pitch Video",
+    note: "3-minute presentation & project walk-through.",
+    url: "https://drive.google.com/drive/folders/1eEURK2jyGT6DxL23uoxSBw0S9a-epPkA?usp=sharing",
+  },
+  {
+    icon: <Github className="h-6 w-6" />,
+    title: "MVP POC Code Repo",
+    note: "Open GitHub repository for Project VANI.",
+    url: "https://github.com/Manasvi-Gangrade/VANI-UNESCO-Youth-Hackathon-2026-INDIA",
+  },
+  {
+    icon: <Link2 className="h-6 w-6" />,
+    title: "Live Deployed URL",
+    note: "Vercel production build & simulator.",
+    url: "https://vani-verification-algorithmic-liter.vercel.app",
+  },
   {
     icon: <FileText className="h-6 w-6" />,
+    title: "Research Paper",
+    note: "ResearchGate publication on VANI simulation framework.",
+    url: "https://www.researchgate.net/publication/412304955_VANI_A_Behavioural_Simulation_Framework_for_Multilingual_Media_and_Information_Literacy_in_the_Age_of_Generative_AI",
+  },
+  {
+    icon: <ExternalLink className="h-6 w-6" />,
     title: "Additional Deliverables",
-    note: "Technical implementation doc, research paper, MVP POC video.",
+    note: "Technical implementation, MVP video & assets drive.",
+    url: "https://drive.google.com/drive/folders/1qHS26BenA5j-EFgkCyowmilLbKb28bNh?usp=sharing",
   },
 ];
 
@@ -156,6 +179,9 @@ function Home() {
                 <PillButton to="/simulator" tone="grape">
                   <Play className="h-5 w-5" /> Try the Simulator
                 </PillButton>
+                <PillButton to="/proposal" tone="sunny">
+                  Read Full Proposal
+                </PillButton>
                 <PillButton to="/meet-vani" tone="cream">
                   Meet VANI
                 </PillButton>
@@ -180,6 +206,9 @@ function Home() {
             <p className="font-display text-2xl leading-snug sm:text-4xl">
               The last time something online made you pause — how did you actually decide whether to
               trust it?
+            </p>
+            <p className="mt-3 text-base text-muted-foreground sm:text-lg">
+              Chances are, you didn't check a source. You felt something, and you scrolled on. That single, split-second moment — not the classroom, not the textbook — is where most of us actually learn, or fail to learn, media literacy. Project VANI starts exactly there.
             </p>
           </div>
         </Reveal>
@@ -215,18 +244,23 @@ function Home() {
 
       <SectionTint tinted>
         <ColourBlockBanner>What Are We Delivering?</ColourBlockBanner>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {DELIVERABLES.map((d, i) => (
             <Reveal key={d.title} delay={i * 70}>
-              <div className="card-pop wiggle-on-hover flex items-start gap-4 bg-card p-6">
+              <a
+                href={d.url}
+                target="_blank"
+                rel="noreferrer"
+                className="card-pop wiggle-on-hover flex h-full items-start gap-4 bg-card p-6 transition-transform hover:-translate-y-1"
+              >
                 <span className="wiggle-target inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-[3px] border-foreground bg-teal text-teal-foreground">
                   {d.icon}
                 </span>
                 <div>
-                  <h3 className="font-display text-lg">{d.title}</h3>
-                  <p className="text-sm text-muted-foreground">{d.note}</p>
+                  <h3 className="font-display text-lg underline-offset-4 hover:underline">{d.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{d.note}</p>
                 </div>
-              </div>
+              </a>
             </Reveal>
           ))}
         </div>

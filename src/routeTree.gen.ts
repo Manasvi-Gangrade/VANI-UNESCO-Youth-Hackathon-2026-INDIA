@@ -10,12 +10,42 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as MeetVaniRouteImport } from './routes/meet-vani'
+import { Route as OurVisionRouteImport } from './routes/our-vision'
+import { Route as ProposalRouteImport } from './routes/proposal'
+import { Route as SimulatorRouteImport } from './routes/simulator'
 import { Route as TheProblemRouteImport } from './routes/the-problem'
 import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeetVaniRoute = MeetVaniRouteImport.update({
+  id: '/meet-vani',
+  path: '/meet-vani',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurVisionRoute = OurVisionRouteImport.update({
+  id: '/our-vision',
+  path: '/our-vision',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProposalRoute = ProposalRouteImport.update({
+  id: '/proposal',
+  path: '/proposal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SimulatorRoute = SimulatorRouteImport.update({
+  id: '/simulator',
+  path: '/simulator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TheProblemRoute = TheProblemRouteImport.update({
@@ -31,30 +61,75 @@ const WhoWeAreRoute = WhoWeAreRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/faq': typeof FaqRoute
+  '/meet-vani': typeof MeetVaniRoute
+  '/our-vision': typeof OurVisionRoute
+  '/proposal': typeof ProposalRoute
+  '/simulator': typeof SimulatorRoute
   '/the-problem': typeof TheProblemRoute
   '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/faq': typeof FaqRoute
+  '/meet-vani': typeof MeetVaniRoute
+  '/our-vision': typeof OurVisionRoute
+  '/proposal': typeof ProposalRoute
+  '/simulator': typeof SimulatorRoute
   '/the-problem': typeof TheProblemRoute
   '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/faq': typeof FaqRoute
+  '/meet-vani': typeof MeetVaniRoute
+  '/our-vision': typeof OurVisionRoute
+  '/proposal': typeof ProposalRoute
+  '/simulator': typeof SimulatorRoute
   '/the-problem': typeof TheProblemRoute
   '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/the-problem' | '/who-we-are'
+  fullPaths:
+    | '/'
+    | '/faq'
+    | '/meet-vani'
+    | '/our-vision'
+    | '/proposal'
+    | '/simulator'
+    | '/the-problem'
+    | '/who-we-are'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/the-problem' | '/who-we-are'
-  id: '__root__' | '/' | '/the-problem' | '/who-we-are'
+  to:
+    | '/'
+    | '/faq'
+    | '/meet-vani'
+    | '/our-vision'
+    | '/proposal'
+    | '/simulator'
+    | '/the-problem'
+    | '/who-we-are'
+  id:
+    | '__root__'
+    | '/'
+    | '/faq'
+    | '/meet-vani'
+    | '/our-vision'
+    | '/proposal'
+    | '/simulator'
+    | '/the-problem'
+    | '/who-we-are'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FaqRoute: typeof FaqRoute
+  MeetVaniRoute: typeof MeetVaniRoute
+  OurVisionRoute: typeof OurVisionRoute
+  ProposalRoute: typeof ProposalRoute
+  SimulatorRoute: typeof SimulatorRoute
   TheProblemRoute: typeof TheProblemRoute
   WhoWeAreRoute: typeof WhoWeAreRoute
 }
@@ -66,6 +141,41 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meet-vani': {
+      id: '/meet-vani'
+      path: '/meet-vani'
+      fullPath: '/meet-vani'
+      preLoaderRoute: typeof MeetVaniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-vision': {
+      id: '/our-vision'
+      path: '/our-vision'
+      fullPath: '/our-vision'
+      preLoaderRoute: typeof OurVisionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/proposal': {
+      id: '/proposal'
+      path: '/proposal'
+      fullPath: '/proposal'
+      preLoaderRoute: typeof ProposalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/simulator': {
+      id: '/simulator'
+      path: '/simulator'
+      fullPath: '/simulator'
+      preLoaderRoute: typeof SimulatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/the-problem': {
@@ -87,6 +197,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FaqRoute: FaqRoute,
+  MeetVaniRoute: MeetVaniRoute,
+  OurVisionRoute: OurVisionRoute,
+  ProposalRoute: ProposalRoute,
+  SimulatorRoute: SimulatorRoute,
   TheProblemRoute: TheProblemRoute,
   WhoWeAreRoute: WhoWeAreRoute,
 }
