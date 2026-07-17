@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Yellow Background Badge -->
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="#F4C430" stroke="#1E1E24" stroke-width="4"/>
+  <!-- Bold V -->
+  <path d="M17 18 L32 46 L46 18" fill="none" stroke="#1E1E24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Grape Purple Dot (.) from VANI. logo -->
+  <circle cx="50.5" cy="45.5" r="4.5" fill="#7C3AED" stroke="#1E1E24" stroke-width="1.5"/>
+</svg>

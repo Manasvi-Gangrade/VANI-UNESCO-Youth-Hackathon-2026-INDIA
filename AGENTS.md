@@ -1,10 +1,14 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# Project VANI — Development Guidelines
+
+### Overview
+Project VANI (Verification & Algorithmic Literacy Network Initiative) is a behaviour-based, multilingual Media and Information Literacy (MIL) simulation and web application built for the **UNESCO Youth Hackathon 2026 India**.
+
+### Core Stack
+- **Framework**: TanStack Start (SSR) + TanStack React Router + Vite
+- **UI & Styling**: React 19, Tailwind CSS v4, Lucide Icons, Radix UI primitives
+- **Typography**: Bree Serif (display), Nunito Sans (body)
+- **Theme**: Neo-brutalist / vibrant editorial with sunny yellow (`#F4C430`), tangerine, grape, forest, and teal accents.
+
+### Important Notes
+- Keep the design vibrant, accessible, and responsive.
+- Ensure all route transitions, simulator feedback loops, and multilingual strings remain robust and well-typed.
