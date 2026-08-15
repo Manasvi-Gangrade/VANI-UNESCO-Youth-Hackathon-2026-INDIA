@@ -16,6 +16,7 @@ import { Route as OurVisionRouteImport } from './routes/our-vision'
 import { Route as ProposalRouteImport } from './routes/proposal'
 import { Route as SimulatorRouteImport } from './routes/simulator'
 import { Route as TheProblemRouteImport } from './routes/the-problem'
+import { Route as VaanikitRouteImport } from './routes/vaanikit'
 import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const TheProblemRoute = TheProblemRouteImport.update({
   path: '/the-problem',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VaanikitRoute = VaanikitRouteImport.update({
+  id: '/vaanikit',
+  path: '/vaanikit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WhoWeAreRoute = WhoWeAreRouteImport.update({
   id: '/who-we-are',
   path: '/who-we-are',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/proposal': typeof ProposalRoute
   '/simulator': typeof SimulatorRoute
   '/the-problem': typeof TheProblemRoute
+  '/vaanikit': typeof VaanikitRoute
   '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/proposal': typeof ProposalRoute
   '/simulator': typeof SimulatorRoute
   '/the-problem': typeof TheProblemRoute
+  '/vaanikit': typeof VaanikitRoute
   '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/proposal': typeof ProposalRoute
   '/simulator': typeof SimulatorRoute
   '/the-problem': typeof TheProblemRoute
+  '/vaanikit': typeof VaanikitRoute
   '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/proposal'
     | '/simulator'
     | '/the-problem'
+    | '/vaanikit'
     | '/who-we-are'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/proposal'
     | '/simulator'
     | '/the-problem'
+    | '/vaanikit'
     | '/who-we-are'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/proposal'
     | '/simulator'
     | '/the-problem'
+    | '/vaanikit'
     | '/who-we-are'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   ProposalRoute: typeof ProposalRoute
   SimulatorRoute: typeof SimulatorRoute
   TheProblemRoute: typeof TheProblemRoute
+  VaanikitRoute: typeof VaanikitRoute
   WhoWeAreRoute: typeof WhoWeAreRoute
 }
 
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TheProblemRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vaanikit': {
+      id: '/vaanikit'
+      path: '/vaanikit'
+      fullPath: '/vaanikit'
+      preLoaderRoute: typeof VaanikitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/who-we-are': {
       id: '/who-we-are'
       path: '/who-we-are'
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProposalRoute: ProposalRoute,
   SimulatorRoute: SimulatorRoute,
   TheProblemRoute: TheProblemRoute,
+  VaanikitRoute: VaanikitRoute,
   WhoWeAreRoute: WhoWeAreRoute,
 }
 export const routeTree = rootRouteImport

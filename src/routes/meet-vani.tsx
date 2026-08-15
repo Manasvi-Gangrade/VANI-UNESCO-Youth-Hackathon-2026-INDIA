@@ -4,6 +4,7 @@ import { Smartphone, Snowflake, Eye, Trophy, Package, Mic, Tv, BadgeCheck } from
 import vaniImg from "@/assets/vani-illustration.jpg";
 import { ColourBlockBanner, IconCard, PillButton, Reveal, SectionTint } from "@/components/vani/ui";
 import { Clover, Sunburst, TealCircle } from "@/components/vani/Decor";
+import { AudioLab } from "@/components/vani/AudioLab";
 
 export const Route = createFileRoute("/meet-vani")({
   head: () => ({
@@ -187,6 +188,12 @@ function MeetVani() {
             </Reveal>
           ))}
         </div>
+      </SectionTint>
+
+      <SectionTint>
+        <Reveal>
+          <AudioLab />
+        </Reveal>
       </SectionTint>
 
       <SectionTint>

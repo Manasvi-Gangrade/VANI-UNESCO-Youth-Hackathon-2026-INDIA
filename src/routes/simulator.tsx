@@ -25,6 +25,8 @@ import {
 import { POSTS, TOOLKIT, UI, type Lang, type Post } from "@/data/feed";
 import { ColourBlockBanner, PillButton, Reveal, SectionTint } from "@/components/vani/ui";
 import { Clover, OrangeHalf, Squiggle, Sunburst, TealCircle } from "@/components/vani/Decor";
+import { SimulatorMedia, playSound } from "@/components/vani/SimulatorMedia";
+import { VaniCertificate } from "@/components/vani/VaniCertificate";
 
 export const Route = createFileRoute("/simulator")({
   head: () => ({
@@ -75,7 +77,7 @@ const kindIcon: Record<Post["kind"], typeof Mic> = {
   screenshot: Camera,
 };
 
-const T: Record<string, Record<Lang, string>> = {
+const T = {
   hint: { en: "Ask VANI", hi: "वाणी से पूछें", mr: "वाणीला विचारा", ta: "வாணியைக் கேளுங்கள்" },
   hintUsed: { en: "VANI whispered", hi: "वाणी ने इशारा किया", mr: "वाणीने इशारा दिला", ta: "வாணி குறிப்பு கொடுத்தது" },
   streak: { en: "streak", hi: "लगातार", mr: "सलग", ta: "தொடர்" },
@@ -103,7 +105,7 @@ const T: Record<string, Record<Lang, string>> = {
     mr: "किलीज: L लाईक · S शेअर · J पुढे · H वाणी",
     ta: "விசைகள்: L விருப்பம் · S பகிர் · J தாண்டிச் செல் · H வாணி",
   },
-};
+} as const;
 
 function fmt(n: number) {
   return n >= 1000 ? `${(n / 1000).toFixed(1)}k` : `${n}`;
@@ -123,7 +125,7 @@ function SimulatorPage() {
   const startedAt = useRef<number>(Date.now());
 
   const post = POSTS[index];
-  const t = (v: Record<string, string>) => v[lang] ?? v.en ?? "";
+  const t = (v?: any) => (v ? v[lang] ?? v["en"] ?? "" : "");
 
   const streak = useMemo(() => {
     let s = 0;
@@ -171,6 +173,16 @@ function SimulatorPage() {
       const current = POSTS[index];
       if (!current || frozen || stage !== "feed") return;
       const correct = action === "like" || action === "share" ? !current.fake : current.fake;
+      
+      // Sound feedback
+      if (current.fake && (action === "like" || action === "share")) {
+        playSound("freeze");
+      } else if (correct) {
+        playSound("correct");
+      } else {
+        playSound("wrong");
+      }
+
       setResults((r) => [
         ...r,
         {
@@ -189,6 +201,7 @@ function SimulatorPage() {
   );
 
   const next = useCallback(() => {
+    playSound("click");
     setFrozen(null);
     setHinted(false);
     setLeft(TURN_SECONDS);
@@ -412,11 +425,11 @@ function SimulatorPage() {
 
             <div className="px-5 py-5">
               <p className="text-[1.02rem] leading-relaxed">{t(post.caption)}</p>
-              {post.media && (
-                <div className="mt-4 rounded-xl border-[3px] border-dashed border-foreground/40 bg-secondary/60 px-4 py-6 text-sm italic text-muted-foreground">
-                  {t(post.media)}
-                </div>
-              )}
+              <SimulatorMedia
+                post={post}
+                lang={lang}
+                frozen={Boolean(frozen)}
+              />
               <div className="mt-4 flex gap-5 text-xs font-bold text-muted-foreground">
                 <span>{fmt(post.stats.likes)}</span>
                 <span>{fmt(post.stats.shares)} ↻</span>
@@ -686,6 +699,17 @@ function ScoreScreen({
               </div>
             </Reveal>
           </div>
+
+          {/* Official UNESCO Hackathon Certificate Generator */}
+          <Reveal delay={120}>
+            <VaniCertificate
+              score={score}
+              caughtFakes={caughtFakes}
+              totalFakes={fakes.length}
+              bestStreak={bestStreak}
+              lang={lang}
+            />
+          </Reveal>
 
           {/* category breakdown */}
           <div className="mt-12">

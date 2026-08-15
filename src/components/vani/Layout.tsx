@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
+import { GoogleTranslateWidget, TTSToggleButton } from "./MultilingualTTS";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -8,6 +9,7 @@ const NAV = [
   { to: "/the-problem", label: "The Problem" },
   { to: "/meet-vani", label: "Meet VANI" },
   { to: "/simulator", label: "Simulator" },
+  { to: "/vaanikit", label: "VaaniKit" },
   { to: "/proposal", label: "Proposal" },
   { to: "/our-vision", label: "Our Vision" },
   { to: "/faq", label: "FAQ" },
@@ -22,7 +24,7 @@ function NavLinks({ onClick }: { onClick?: () => void }) {
           to={n.to}
           onClick={onClick}
           activeOptions={{ exact: n.to === "/" }}
-          className="rounded-full border-[3px] border-transparent px-4 py-2 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground hover:bg-sunny"
+          className="rounded-full border-[3px] border-transparent px-3.5 py-1.5 text-xs font-bold transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground hover:bg-sunny"
           activeProps={{ className: "border-foreground bg-tangerine" }}
         >
           {n.label}
@@ -38,20 +40,24 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <header className="sticky top-0 z-50 border-b-[3px] border-foreground bg-sunny">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-          <Link to="/" className="font-display text-2xl tracking-tight">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6">
+          <Link to="/" className="font-display text-2xl tracking-tight shrink-0">
             VANI<span className="text-grape">.</span>
           </Link>
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-0.5 lg:flex">
             <NavLinks />
           </nav>
-          <button
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border-[3px] border-foreground bg-card lg:hidden"
-            onClick={() => setOpen((o) => !o)}
-            aria-label="Toggle menu"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-2">
+            <GoogleTranslateWidget />
+            <TTSToggleButton />
+            <button
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-foreground bg-card lg:hidden"
+              onClick={() => setOpen((o) => !o)}
+              aria-label="Toggle menu"
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
         {open && (
           <nav className="flex flex-col gap-1 border-t-[3px] border-foreground bg-cream px-4 py-3 lg:hidden">

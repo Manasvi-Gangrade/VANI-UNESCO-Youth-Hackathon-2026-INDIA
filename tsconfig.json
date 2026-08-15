@@ -25,6 +25,8 @@
     "noUncheckedSideEffectImports": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
-  }
+    },
+    "forceConsistentCasingInFileNames": false
+  },
+  "exclude": ["node_modules", "scripts"]
 }

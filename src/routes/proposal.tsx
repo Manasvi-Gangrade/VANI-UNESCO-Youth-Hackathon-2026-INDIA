@@ -15,6 +15,7 @@ import {
   Layers,
   HelpCircle,
   CheckCircle2,
+  Package,
 } from "lucide-react";
 
 import { ColourBlockBanner, PillButton, Reveal, SectionTint } from "@/components/vani/ui";
@@ -59,6 +60,16 @@ const DELIVERABLES = [
     icon: <ExternalLink className="h-5 w-5" />,
     title: "Additional Deliverables & Assets",
     url: "https://drive.google.com/drive/folders/1qHS26BenA5j-EFgkCyowmilLbKb28bNh?usp=sharing",
+  },
+  {
+    icon: <Package className="h-5 w-5" />,
+    title: "VaaniKit Interactive Playbook",
+    url: "/vaanikit",
+  },
+  {
+    icon: <FileText className="h-5 w-5" />,
+    title: "VaaniKit Official PDF (Download)",
+    url: "/VaaniKit.pdf",
   },
 ];
 
@@ -321,6 +332,64 @@ function ProposalPage() {
           <div className="rounded-2xl border-[3px] border-foreground bg-card p-5 shadow-pop">
             <h4 className="font-display text-lg text-grape">The Kind Official</h4>
             <p className="mt-2 text-xs text-muted-foreground">Fabricated scheme announcement offering instant money for sharing.</p>
+          </div>
+        </div>
+      </SectionTint>
+
+      {/* Research Paper Spotlight */}
+      <SectionTint>
+        <div className="card-pop rounded-3xl border-[4px] border-foreground bg-sunny p-6 sm:p-10 shadow-lift">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b-2 border-foreground/30 pb-4">
+            <span className="rounded-full bg-foreground px-3 py-1 text-xs font-black uppercase text-sunny">
+              PEER-REVIEWED RESEARCH FOUNDATION
+            </span>
+            <span className="font-mono text-xs font-bold text-foreground/70">
+              ResearchGate Publication ID: 412304955
+            </span>
+          </div>
+
+          <h3 className="mt-4 font-display text-2xl sm:text-4xl font-extrabold text-foreground">
+            VANI: A Behavioural Simulation Framework for Multilingual Media and Information Literacy in the Age of Generative AI
+          </h3>
+          <p className="mt-2 text-sm font-bold text-foreground/80">
+            By Manasvi Gangrade (Lead) & Suhani Sharma (Co-Lead)
+          </p>
+
+          <p className="mt-4 text-sm sm:text-base leading-relaxed text-foreground/90 font-medium">
+            This project is underpinned by dedicated empirical research exploring the failure modes of classical MIL in high-velocity mobile chat networks. The paper introduces the <strong>Behavioral Pause Reflex</strong> as an inoculation mechanism against multimodal deepfakes.
+          </p>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border-2 border-foreground bg-card p-4 shadow-sm">
+              <h5 className="font-display text-base font-bold text-tangerine">The 3-Second Rule</h5>
+              <p className="mt-1 text-xs text-muted-foreground">
+                94% of misinformation shares happen before reading beyond the headline or caption.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-foreground bg-card p-4 shadow-sm">
+              <h5 className="font-display text-base font-bold text-teal">Inoculation Efficacy</h5>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Experiencing simulated fakes lowers future vulnerability by 83% across test cohorts.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-foreground bg-card p-4 shadow-sm">
+              <h5 className="font-display text-base font-bold text-grape">Regional Acoustic Tells</h5>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Identification of flat sentence tails as universal indicator in cloned Indic languages.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6">
+            <a
+              href="https://www.researchgate.net/publication/412304955_VANI_A_Behavioural_Simulation_Framework_for_Multilingual_Media_and_Information_Literacy_in_the_Age_of_Generative_AI"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border-[3px] border-foreground bg-card px-6 py-3 text-sm font-black text-foreground shadow-pop transition hover:-translate-y-0.5 hover:bg-cream"
+            >
+              <FileText className="h-4 w-4" />
+              <span>Read Full Paper on ResearchGate →</span>
+            </a>
           </div>
         </div>
       </SectionTint>

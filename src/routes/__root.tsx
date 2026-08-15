@@ -119,16 +119,19 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+import { TTSProvider } from "../components/vani/MultilingualTTS";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteLayout>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
-      </SiteLayout>
+      <TTSProvider>
+        <SiteLayout>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </SiteLayout>
+      </TTSProvider>
     </QueryClientProvider>
   );
-
 }
