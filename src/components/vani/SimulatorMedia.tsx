@@ -1,17 +1,18 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {
   Play,
   Pause,
   Volume2,
   VolumeX,
   Radio,
-  Search,
   AlertTriangle,
-  CheckCircle2,
-  ShieldAlert,
-  Clock,
-  Sparkles,
   Info,
+  CloudRain,
+  Table,
+  FileWarning,
+  FileCheck,
+  CheckCircle2,
+  Lock,
 } from "lucide-react";
 import { type Post, type Lang } from "@/data/feed";
 
@@ -19,11 +20,9 @@ interface SimulatorMediaProps {
   post: Post;
   lang: Lang;
   frozen: boolean;
-  highlightedTell?: number | null;
-  onSelectTell?: (index: number) => void;
 }
 
-// Simple Web Audio Sound Effects
+// Web Audio Sound Effects
 export function playSound(type: "freeze" | "correct" | "wrong" | "click") {
   try {
     const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
@@ -35,7 +34,6 @@ export function playSound(type: "freeze" | "correct" | "wrong" | "click") {
     const now = ctx.currentTime;
 
     if (type === "freeze") {
-      // Sci-fi dramatic freeze sound
       osc.type = "sine";
       osc.frequency.setValueAtTime(440, now);
       osc.frequency.exponentialRampToValueAtTime(110, now + 0.35);
@@ -44,16 +42,14 @@ export function playSound(type: "freeze" | "correct" | "wrong" | "click") {
       osc.start(now);
       osc.stop(now + 0.35);
     } else if (type === "correct") {
-      // Pleasant chime
       osc.type = "triangle";
-      osc.frequency.setValueAtTime(523.25, now); // C5
-      osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+      osc.frequency.setValueAtTime(523.25, now);
+      osc.frequency.setValueAtTime(659.25, now + 0.08);
       gain.gain.setValueAtTime(0.2, now);
       gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
       osc.start(now);
       osc.stop(now + 0.3);
     } else if (type === "wrong") {
-      // Low buzz
       osc.type = "sawtooth";
       osc.frequency.setValueAtTime(160, now);
       osc.frequency.linearRampToValueAtTime(110, now + 0.25);
@@ -62,7 +58,6 @@ export function playSound(type: "freeze" | "correct" | "wrong" | "click") {
       osc.start(now);
       osc.stop(now + 0.25);
     } else if (type === "click") {
-      // Subtle pop
       osc.type = "sine";
       osc.frequency.setValueAtTime(800, now);
       gain.gain.setValueAtTime(0.1, now);
@@ -71,17 +66,11 @@ export function playSound(type: "freeze" | "correct" | "wrong" | "click") {
       osc.stop(now + 0.05);
     }
   } catch {
-    // AudioContext blocked or not supported
+    // AudioContext blocked
   }
 }
 
-export function SimulatorMedia({
-  post,
-  lang,
-  frozen,
-  highlightedTell,
-  onSelectTell,
-}: SimulatorMediaProps) {
+export function SimulatorMedia({ post, lang, frozen }: SimulatorMediaProps) {
   const t = (v?: Record<string, string>) => (v ? v[lang] ?? v.en ?? "" : "");
 
   // Voice Note State
@@ -90,7 +79,6 @@ export function SimulatorMedia({
   const [playbackSpeed, setPlaybackSpeed] = useState<1 | 1.5 | 2>(1);
 
   // Video State
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
 
   // Speech synthesis for Voice Note
@@ -108,22 +96,21 @@ export function SimulatorMedia({
         });
       }, 100);
 
-      // Play synthesized tone/voice if supported
       try {
         if ("speechSynthesis" in window) {
           window.speechSynthesis.cancel();
-          const utterance = new SpeechSynthesisUtterance(
+          const text =
             lang === "hi"
-              ? "अपनी दवाइयाँ तुरंत बंद कर दें। यह नया घरेलू उपाय तीन दिन में असर करेगा।"
-              : "Stop taking your prescribed medicine. This home remedy clears it in three days."
-          );
+              ? "अपनी दवाइयाँ तुरंत बंद कर दें। यह नया घरेलू नुस्खा तीन दिन में पूरा असर करेगा।"
+              : "Stop taking your prescribed tablets. This kitchen remedy clears it in three days.";
+          const utterance = new SpeechSynthesisUtterance(text);
           utterance.rate = playbackSpeed * 0.95;
           utterance.pitch = 0.9;
           utterance.onend = () => setIsPlaying(false);
           window.speechSynthesis.speak(utterance);
         }
       } catch {
-        /* Speech synthesis unavailable */
+        /* ignore */
       }
     } else {
       if ("speechSynthesis" in window) {
@@ -138,16 +125,17 @@ export function SimulatorMedia({
     };
   }, [isPlaying, playbackSpeed, lang]);
 
-  // Handle Voice Note kind (Post 3 etc)
+  // ====================================================
+  // POST 3: VOICE NOTE (The Familiar Voice Clone)
+  // ====================================================
   if (post.kind === "voice") {
     const bars = [
       40, 70, 55, 90, 80, 60, 45, 95, 75, 50, 85, 90, 65, 40, 80, 70, 55, 60, 40,
-      35, 30, 25, 25, 20, // flattening at the end!
+      35, 30, 25, 25, 20, // flat end tell
     ];
 
     return (
       <div className="mt-3 overflow-hidden rounded-2xl border-[3px] border-foreground bg-[#E7F8E8] p-4 text-foreground shadow-sm">
-        {/* WhatsApp style header */}
         <div className="flex items-center justify-between border-b-2 border-foreground/20 pb-2.5 text-xs">
           <div className="flex items-center gap-1.5 font-bold text-forest">
             <Radio className="h-3.5 w-3.5 animate-pulse" />
@@ -160,7 +148,6 @@ export function SimulatorMedia({
           </span>
         </div>
 
-        {/* Player UI */}
         <div className="mt-3 flex items-center gap-3">
           <button
             onClick={() => {
@@ -173,13 +160,12 @@ export function SimulatorMedia({
             {isPlaying ? <Pause className="h-5 w-5 fill-white" /> : <Play className="ml-0.5 h-5 w-5 fill-white" />}
           </button>
 
-          {/* Equalizer Waveform */}
           <div className="relative flex-1">
             <div className="flex h-10 items-center gap-1">
               {bars.map((h, i) => {
                 const percent = (i / bars.length) * 100;
                 const active = percent <= audioProgress;
-                const isTail = i >= bars.length - 6; // last 6 bars are the robotic flat tail
+                const isTail = i >= bars.length - 6;
                 return (
                   <div
                     key={i}
@@ -187,13 +173,12 @@ export function SimulatorMedia({
                       active ? "bg-forest" : "bg-forest/30"
                     } ${isTail && frozen ? "ring-2 ring-tangerine" : ""}`}
                     style={{
-                      height: isPlaying ? `${Math.max(15, (h * (0.8 + Math.random() * 0.4)))}%` : `${h}%`,
+                      height: isPlaying ? `${Math.max(15, h * (0.8 + Math.random() * 0.4))}%` : `${h}%`,
                     }}
                   />
                 );
               })}
             </div>
-            {/* Scrubber indicator */}
             <div
               className="absolute -bottom-1 text-[10px] font-mono font-bold text-forest"
               style={{ left: `${Math.min(audioProgress, 90)}%` }}
@@ -202,7 +187,6 @@ export function SimulatorMedia({
             </div>
           </div>
 
-          {/* Speed Toggle */}
           <button
             onClick={() => {
               playSound("click");
@@ -214,7 +198,6 @@ export function SimulatorMedia({
           </button>
         </div>
 
-        {/* Clue Callout on Freeze */}
         {frozen && (
           <div className="mt-3 flex items-start gap-2 rounded-xl border-2 border-tangerine bg-tangerine/15 p-2.5 text-xs text-foreground animate-pulse">
             <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-tangerine" />
@@ -234,13 +217,13 @@ export function SimulatorMedia({
     );
   }
 
-  // Handle Video / Deepfake kind (Post 5 etc)
+  // ====================================================
+  // POST 5: VIDEO (Deepfake News Broadcast)
+  // ====================================================
   if (post.kind === "video") {
     return (
       <div className="mt-3 overflow-hidden rounded-2xl border-[3px] border-foreground bg-black text-white shadow-pop">
-        {/* News Studio Shell */}
         <div className="relative aspect-video w-full bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 flex flex-col justify-between p-3">
-          {/* Top Bar: LIVE Indicator */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="flex items-center gap-1.5 rounded-md bg-red-600 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-white shadow-sm">
@@ -260,15 +243,9 @@ export function SimulatorMedia({
             </button>
           </div>
 
-          {/* Synthetic Anchor Avatar Representation */}
           <div className="my-auto flex flex-col items-center justify-center text-center">
             <div className="relative">
-              <div
-                className={`h-24 w-24 rounded-full border-4 border-white/80 bg-gradient-to-b from-amber-200 to-amber-400 p-1 shadow-2xl ${
-                  isVideoPlaying ? "animate-pulse" : ""
-                }`}
-              >
-                {/* Simulated Anchor Face silhouette */}
+              <div className="h-24 w-24 rounded-full border-4 border-white/80 bg-gradient-to-b from-amber-200 to-amber-400 p-1 shadow-2xl animate-pulse">
                 <div className="flex h-full w-full items-center justify-center rounded-full bg-slate-800 font-display text-2xl font-bold text-amber-200">
                   🎙️
                 </div>
@@ -284,7 +261,6 @@ export function SimulatorMedia({
             </p>
           </div>
 
-          {/* Breaking News Bottom Ticker */}
           <div className="overflow-hidden rounded-lg border-2 border-red-500 bg-red-700/90 text-white backdrop-blur-md">
             <div className="flex items-center">
               <span className="shrink-0 bg-yellow-400 px-2.5 py-1 text-[11px] font-black uppercase tracking-tight text-black">
@@ -299,7 +275,6 @@ export function SimulatorMedia({
           </div>
         </div>
 
-        {/* Tell Spotlight on Freeze */}
         {frozen && (
           <div className="border-t-2 border-foreground bg-tangerine p-3 text-xs text-black font-bold">
             ⚠️ {t(post.media)}
@@ -309,54 +284,55 @@ export function SimulatorMedia({
     );
   }
 
-  // Handle Forged Notice / Scheme Screenshot (Post 1, Post 6)
-  if (post.kind === "screenshot" || (post.fake && post.category.en.toLowerCase().includes("scam"))) {
+  // ====================================================
+  // POST 1: FORGED SCHOLARSHIP NOTICE (Mismatched Fonts)
+  // ====================================================
+  if (post.id === "p1") {
     return (
       <div className="mt-3 overflow-hidden rounded-2xl border-[3px] border-foreground bg-card text-foreground shadow-sm">
-        {/* Fake Official Seal Header */}
         <div className="flex items-center justify-between border-b-2 border-foreground bg-sunny/40 px-4 py-2 text-xs font-bold">
           <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full border border-foreground bg-white text-xs">
-              🏛️
-            </div>
-            <span className="font-display tracking-tight">
-              {lang === "hi" ? "सार्वजनिक सूचना • जन कल्याण पोर्टल" : "PUBLIC NOTICE • SCHEME PORTAL"}
-            </span>
+            <span className="text-sm">🏛️</span>
+            <span className="font-display tracking-tight">DISTRICT SCHOLARSHIP PORTAL</span>
           </div>
           <span className="rounded-full border border-foreground bg-card px-2 py-0.5 text-[10px] font-black">
-            REF: 2026/ED-982
+            NOTICE #2026/ED-44
           </span>
         </div>
 
-        {/* Notice Body */}
         <div className="p-4 space-y-3">
-          {/* Mismatched visual banner */}
-          <div className="rounded-xl border-2 border-dashed border-red-500 bg-red-50 p-3 text-center">
-            <p className="font-display text-sm font-black uppercase tracking-wide text-red-700">
-              {lang === "hi" ? "⚡ अंतिम अवसर • आज रात 11:59 बजे समाप्त" : "⚡ FINAL DEADLINE • CLOSING TONIGHT 11:59 PM"}
-            </p>
-            <p className="mt-1 text-xs font-bold text-foreground/80">
+          <div className="rounded-xl border-2 border-red-400 bg-red-50/70 p-3 text-center">
+            <span className="text-xs font-bold text-red-600 block mb-1 uppercase tracking-wider">
+              {lang === "hi" ? "अति आवश्यक सूचना" : "CRITICAL UPDATE"}
+            </span>
+            <p className="font-sans text-xs text-foreground/80">
               {lang === "hi"
-                ? "पात्र छात्र तुरंत दिए गए लिंक पर पंजीकरण करें व UPI से सत्यापन पूर्ण करें।"
-                : "Eligible candidates must register immediately via link and complete UPI verification."}
+                ? "सभी पंजीकृत उम्मीदवारों को सूचित किया जाता है कि पोर्टल की अंतिम तिथि बढ़ा दी गई है:"
+                : "All candidates are notified that the submission window has been rescheduled to:"}
+            </p>
+            {/* The Mismatched Typography Tell */}
+            <p
+              className={`mt-2 font-mono text-sm font-black text-red-700 tracking-wider ${
+                frozen ? "ring-2 ring-tangerine bg-sunny/40 p-1 rounded" : ""
+              }`}
+            >
+              TONIGHT 11:59 PM (FINAL EXTENSION)
             </p>
           </div>
 
-          {/* Suspicious URL button */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 rounded-xl border-2 border-foreground bg-secondary/70 p-2.5 text-xs">
+          <div className="flex items-center justify-between gap-2 rounded-xl border border-foreground/30 bg-secondary/50 p-2 text-[11px]">
             <span className="font-mono text-muted-foreground truncate">
-              https://portal-scholarship-urgent.claim-benefit.xyz
+              http://indore-edu-scholarships.org/apply-fast
             </span>
-            <span className="rounded-md border border-red-600 bg-red-600 px-2 py-1 font-bold text-white text-[10px] shrink-0">
-              {lang === "hi" ? "नकली डोमेन (.xyz)" : "SUSPICIOUS DOMAIN"}
+            <span className="rounded bg-tangerine/20 px-1.5 py-0.5 font-bold text-tangerine text-[9px] shrink-0">
+              UNVERIFIED LINK
             </span>
           </div>
         </div>
 
-        {/* Tell Spotlight on Freeze */}
         {frozen && (
-          <div className="border-t-2 border-foreground bg-grape/20 p-3 text-xs font-bold text-foreground flex items-center gap-2">
-            <Info className="h-4 w-4 shrink-0 text-grape" />
+          <div className="border-t-2 border-foreground bg-tangerine/20 p-3 text-xs font-bold text-foreground flex items-center gap-2">
+            <AlertTriangle className="h-4 w-4 shrink-0 text-tangerine" />
             <span>{t(post.media)}</span>
           </div>
         )}
@@ -364,46 +340,245 @@ export function SimulatorMedia({
     );
   }
 
-  // Handle Photo / General Image (Post 2, Post 8)
-  if (post.kind === "photo") {
-    const isGenuine = !post.fake;
+  // ====================================================
+  // POST 6: FINANCIAL SCAM (₹5,000 via UPI PIN)
+  // ====================================================
+  if (post.id === "p6") {
+    return (
+      <div className="mt-3 overflow-hidden rounded-2xl border-[3px] border-foreground bg-card text-foreground shadow-sm">
+        <div className="flex items-center justify-between border-b-2 border-foreground bg-tangerine/30 px-4 py-2 text-xs font-bold">
+          <div className="flex items-center gap-2">
+            <span className="text-sm">💰</span>
+            <span className="font-display tracking-tight text-red-700">
+              DIRECT BENEFIT TRANSFER PORTAL
+            </span>
+          </div>
+          <span className="rounded-full bg-red-600 px-2 py-0.5 text-[10px] font-black text-white animate-pulse">
+            200 SLOTS LEFT
+          </span>
+        </div>
+
+        <div className="p-4 space-y-3">
+          <div className="rounded-xl border-2 border-dashed border-red-500 bg-red-50 p-3 text-center">
+            <span className="text-3xl">🏛️</span>
+            <p className="font-display text-base font-black text-red-700 mt-1">
+              ₹5,000 DIRECT STUDENT SUBSIDY
+            </p>
+            <p className="text-xs text-foreground/80 mt-1">
+              {lang === "hi"
+                ? "राशि प्राप्त करने हेतु अपना UPI पिन डालकर तुरंत वेरीफाई करें।"
+                : "Enter your UPI PIN to authenticate account and receive instant payout."}
+            </p>
+          </div>
+
+          <div
+            className={`rounded-xl border-2 border-foreground p-2.5 text-center text-xs font-black ${
+              frozen ? "bg-red-200 border-red-600 text-red-800" : "bg-sunny"
+            }`}
+          >
+            {lang === "hi" ? "पैसे पाने के लिए कभी PIN नहीं लगता!" : "RULE: A UPI PIN NEVER RECEIVES MONEY!"}
+          </div>
+        </div>
+
+        {frozen && (
+          <div className="border-t-2 border-foreground bg-grape/20 p-3 text-xs font-bold text-foreground flex items-center gap-2">
+            <AlertTriangle className="h-4 w-4 shrink-0 text-grape" />
+            <span>{t(post.media)}</span>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ====================================================
+  // POST 8: RECYCLED RALLY PHOTO (Shadows & Foreign Signs)
+  // ====================================================
+  if (post.id === "p8") {
     return (
       <div className="mt-3 overflow-hidden rounded-2xl border-[3px] border-foreground bg-card shadow-sm">
-        <div className="relative aspect-[16/10] w-full bg-secondary/80 flex flex-col items-center justify-center p-6 text-center">
-          {/* Simulated Image Visual Representation */}
+        <div className="relative aspect-[16/10] w-full bg-slate-900 flex flex-col justify-between p-4 text-white">
+          <div className="flex items-center justify-between">
+            <span className="rounded-full bg-red-600 px-2 py-0.5 text-[10px] font-black uppercase">
+              CLAIM: 2 LAKH LOCAL RALLY
+            </span>
+            <span className="rounded bg-black/60 px-2 py-0.5 font-mono text-[9px] text-amber-300">
+              REVERSE IMAGE HIT: 2017
+            </span>
+          </div>
+
+          {/* Simulated Crowd Visual with Forensic Pins */}
+          <div className="my-auto text-center space-y-2">
+            <div className="text-4xl">👥👥👥👥👥</div>
+            <div className="flex justify-center gap-2">
+              <span
+                className={`rounded border px-2 py-0.5 text-[10px] font-bold ${
+                  frozen ? "border-amber-400 bg-amber-400/30 text-amber-200" : "border-white/30 bg-black/40"
+                }`}
+              >
+                🪧 Cyrillic European Signboards
+              </span>
+              <span
+                className={`rounded border px-2 py-0.5 text-[10px] font-bold ${
+                  frozen ? "border-amber-400 bg-amber-400/30 text-amber-200" : "border-white/30 bg-black/40"
+                }`}
+              >
+                ☀️ Dual Shadow Directions
+              </span>
+            </div>
+          </div>
+
+          <div className="text-[10px] text-white/70 italic text-center">
+            {t(post.media)}
+          </div>
+        </div>
+
+        {frozen && (
+          <div className="border-t-2 border-foreground bg-tangerine/20 p-3 text-xs font-bold text-foreground">
+            ⚠️ {lang === "hi"
+              ? "रिवर्स इमेज सर्च से पता चलता है कि यह 2018 की किसी यूरोपीय शहर की रैली की तस्वीर है।"
+              : "Reverse image search reveals this same crowd photo was taken in Europe in 2017."}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ====================================================
+  // POST 9: FAKE INTERNAL LEAK (Plain text memo)
+  // ====================================================
+  if (post.id === "p9") {
+    return (
+      <div className="mt-3 overflow-hidden rounded-2xl border-[3px] border-foreground bg-slate-950 text-emerald-400 font-mono p-4 shadow-sm text-xs space-y-2">
+        <div className="flex items-center justify-between border-b border-emerald-800 pb-2 text-[10px]">
+          <span className="font-bold flex items-center gap-1.5 text-red-400">
+            <Lock className="h-3 w-3" />
+            CONFIDENTIAL // NO PROVENANCE
+          </span>
+          <span className="text-emerald-600">RAW_MEMO.TXT</span>
+        </div>
+
+        <div className="space-y-1 py-1 text-[11px] leading-relaxed">
+          <p className="text-red-400 font-bold">&gt;&gt; NOTICE: SCREENSHOT BEFORE DELETION</p>
+          <p className="text-slate-300">
+            &gt; &quot;Camera sensor logs indicate automated background diagnostics during overnight idle cycles.&quot;
+          </p>
+          <p className="text-slate-500 text-[10px] pt-1">
+            [SENDER: UNKNOWN | RECIPIENT: UNKNOWN | LETTERHEAD: NONE | VERIFIABLE HASH: MISSING]
+          </p>
+        </div>
+
+        {frozen && (
+          <div className="border-t border-emerald-800 pt-2 text-[11px] text-amber-300 font-sans font-bold">
+            ⚠️ {t(post.media)}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ====================================================
+  // POST 2: GENUINE LIBRARY BOOKSHELF (Authentic Photo)
+  // ====================================================
+  if (post.id === "p2") {
+    return (
+      <div className="mt-3 overflow-hidden rounded-2xl border-[3px] border-foreground bg-card shadow-sm">
+        <div className="relative aspect-[16/10] w-full bg-[#EBF7F2] flex flex-col items-center justify-center p-6 text-center">
           <div className="h-20 w-20 rounded-2xl border-[3px] border-foreground bg-sunny flex items-center justify-center text-3xl shadow-pop">
-            {isGenuine ? "📚" : "🌊"}
+            📚
           </div>
           <p className="mt-3 font-display text-sm font-bold text-foreground">
             {t(post.media)}
           </p>
-          <div className="mt-2 flex items-center gap-2">
-            <span className="rounded-full border border-foreground bg-card px-2.5 py-0.5 text-[10px] font-bold text-foreground/70">
-              {isGenuine ? "ISO 200 • 1/500s" : "RECYCLED MEDIA DETECTED"}
-            </span>
-          </div>
+          <span className="mt-2 rounded-full border border-forest bg-forest/15 px-2.5 py-0.5 text-[10px] font-bold text-forest">
+            EXIF VERIFIED: Shot on iPhone 13, Indore • Natural Morning Light
+          </span>
         </div>
-
-        {/* Forensic metadata badge */}
-        <div
-          className={`border-t-2 border-foreground px-4 py-2 text-xs font-bold flex items-center justify-between ${
-            isGenuine ? "bg-teal/20 text-teal-foreground" : "bg-tangerine/20 text-tangerine-foreground"
-          }`}
-        >
-          <span>
-            {isGenuine
-              ? (lang === "hi" ? "✓ मूल तस्वीर (सत्यापित EXIF डेटा)" : "✓ Original Photograph (Verified EXIF)")
-              : (lang === "hi" ? "⚠️ रिवर्स इमेज सर्च: 2018 की पुरानी तस्वीर" : "⚠️ Reverse Search: Matched 2018 Archive")}
-          </span>
-          <span className="font-mono text-[10px]">
-            {isGenuine ? "RAW-CHECK OK" : "HASH-MATCH FOUND"}
-          </span>
+        <div className="border-t-2 border-foreground bg-teal/20 px-4 py-2 text-xs font-bold text-teal-foreground flex items-center justify-between">
+          <span>✓ Genuine User Contribution</span>
+          <span className="font-mono text-[10px]">RAW-CHECK PASSED</span>
         </div>
       </div>
     );
   }
 
-  // Fallback for clean text posts (Post 4, Post 7, Post 10)
+  // ====================================================
+  // POST 4: GENUINE METEOROLOGICAL ALERT
+  // ====================================================
+  if (post.id === "p4") {
+    return (
+      <div className="mt-3 overflow-hidden rounded-2xl border-[3px] border-foreground bg-[#FFF9E6] p-4 text-foreground shadow-sm space-y-2">
+        <div className="flex items-center justify-between border-b-2 border-foreground/20 pb-2 text-xs font-bold">
+          <div className="flex items-center gap-1.5 text-amber-800">
+            <CloudRain className="h-4 w-4 text-amber-600" />
+            <span>REGIONAL METEOROLOGICAL CENTRE</span>
+          </div>
+          <span className="rounded bg-amber-500/20 px-2 py-0.5 text-[10px] font-black text-amber-900">
+            BULLETIN #IMD-2026-92
+          </span>
+        </div>
+        <p className="text-xs font-bold text-amber-950 leading-relaxed">
+          {lang === "hi"
+            ? "ऑरेंज अलर्ट: भारी वर्षा की संभावना। समय: प्रातः 6:00 से 12:00 दोपहर।"
+            : "ORANGE ALERT: Heavy rainfall expected. Window: 06:00 AM - 12:00 PM."}
+        </p>
+        <div className="flex items-center gap-2 pt-1 text-[10px] font-bold text-forest">
+          <CheckCircle2 className="h-3.5 w-3.5" />
+          <span>Official Gazette Reference & Timestamp Verified</span>
+        </div>
+      </div>
+    );
+  }
+
+  // ====================================================
+  // POST 7: GENUINE OPEN DATA CIVIC POST
+  // ====================================================
+  if (post.id === "p7") {
+    return (
+      <div className="mt-3 overflow-hidden rounded-2xl border-[3px] border-foreground bg-card p-4 text-foreground shadow-sm space-y-2">
+        <div className="flex items-center justify-between border-b-2 border-foreground/20 pb-2 text-xs font-bold">
+          <div className="flex items-center gap-1.5 text-teal">
+            <Table className="h-4 w-4" />
+            <span>MUNICIPAL CORP OPEN DATASET</span>
+          </div>
+          <span className="font-mono text-[10px] text-muted-foreground">WARD_DATA_V1.CSV</span>
+        </div>
+        <p className="text-xs text-foreground/80 font-medium">
+          {lang === "hi"
+            ? "वार्ड-स्तर की सफाई रिपोर्ट: पूर्ण डेटाशीट व गणना विधि ओपन रिपॉजिटरी पर संलग्न।"
+            : "Ward sanitation metrics: Complete raw table & methodology attached for peer verification."}
+        </p>
+        <div className="flex items-center gap-2 pt-1 text-[10px] font-bold text-forest">
+          <CheckCircle2 className="h-3.5 w-3.5" />
+          <span>Transparent Methodology & Checkable Records</span>
+        </div>
+      </div>
+    );
+  }
+
+  // ====================================================
+  // POST 10: GENUINE SELF-CORRECTION
+  // ====================================================
+  if (post.id === "p10") {
+    return (
+      <div className="mt-3 overflow-hidden rounded-2xl border-[3px] border-foreground bg-[#F7F2FA] p-4 text-foreground shadow-sm space-y-2">
+        <div className="flex items-center justify-between border-b-2 border-foreground/20 pb-2 text-xs font-bold text-grape">
+          <span>PUBLIC CORRECTION & REVISION</span>
+          <span className="font-mono text-[10px]">CORRECTION_THREAD</span>
+        </div>
+        <p className="text-xs text-foreground/80 leading-relaxed font-medium">
+          {lang === "hi"
+            ? "पूर्व पोस्ट में संशोधन: उद्धृत आँकड़ा पूरे राज्य का था। सही जिलावार आँकड़े थ्रेड में जोड़ दिए गए हैं।"
+            : "Correction notice: Previous post cited state-level figures rather than district numbers. Accurate table linked."}
+        </p>
+        <div className="flex items-center gap-2 pt-1 text-[10px] font-bold text-grape">
+          <CheckCircle2 className="h-3.5 w-3.5 text-forest" />
+          <span>Verified Transparency • Rare Accountability Signal</span>
+        </div>
+      </div>
+    );
+  }
+
+  // Fallback
   return (
     <div className="mt-3 rounded-2xl border-2 border-foreground/30 bg-secondary/40 p-4 text-sm font-medium italic text-muted-foreground">
       {t(post.media)}
