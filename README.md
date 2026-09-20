@@ -4,11 +4,11 @@
 <tr>
 <td align="center" bgcolor="#FFF4D6">
 
-# 🟡 Project VANI
+# Project VANI
 
 ### Verification & Algorithmic Literacy Network Initiative
 
-**UNESCO Youth Hackathon 2026 India**  
+**🏆 UNESCO Youth Hackathon 2026 India**  
 *Play Your Part: Youth Designing the Future of Media and Information Literacy*
 
 A behaviour-based, multilingual Media & Information Literacy (MIL) simulation and web application that trains young minds to spot AI deepfakes, synthetic voice clones, and algorithmically amplified misinformation at the exact split-second before they hit share.
@@ -102,7 +102,7 @@ VANI’s simulation feed presents controlled, purpose-built scenarios designed a
 
 ---
 
-## 🌍 Multilingual by Design: 230+ Indian & Global Languages Everywhere
+## 🌸 Multilingual by Design: 230+ Indian & Global Languages Everywhere
 
 Misinformation travels fastest in regional and vernacular languages where automated moderation tools and fact-checking resources are scarce.
 
@@ -140,24 +140,24 @@ VANI is engineered for high performance, zero-cost operational sustainability, a
 
 <table>
 <tr>
-<td bgcolor="#FFF4D6" width="30%"><b>🎥 Pitch Video & Walkthrough</b></td>
+<td bgcolor="#FFF4D6" width="30%"><b>Pitch Video & Walkthrough</b></td>
 <td><a href="https://drive.google.com/drive/folders/1eEURK2jyGT6DxL23uoxSBw0S9a-epPkA?usp=sharing"><b>Google Drive Video Folder →</b></a><br><i>Complete 3-minute presentation, system walk-through, and architectural demo.</i></td>
 </tr>
 <tr>
-<td bgcolor="#FFF8E7"><b>💻 Live GitHub Repository</b></td>
+<td bgcolor="#FFF8E7"><b>Live GitHub Repository</b></td>
 <td><a href="https://github.com/Manasvi-Gangrade/VANI-UNESCO-Youth-Hackathon-2026-INDIA"><b>GitHub: Manasvi-Gangrade/VANI... →</b></a><br><i>Clean open-source repository with full history, automated tests, and Vite build configuration.</i></td>
 </tr>
 <tr>
-<td bgcolor="#FFF4D6"><b>🌐 Live Deployed Application</b></td>
+<td bgcolor="#FFF4D6"><b>Live Deployed Application</b></td>
 <td><a href="https://vani-verification-algorithmic-liter.vercel.app"><b>vani-verification-algorithmic-liter.vercel.app →</b></a><br><i>Production deployment running on Vercel with SSR, sub-second route transitions, and responsive mobile UX.</i></td>
 </tr>
 <tr>
-<td bgcolor="#FFF8E7"><b>📄 Published Research Paper</b></td>
+<td bgcolor="#FFF8E7"><b>Published Research Paper</b></td>
 <td><a href="https://www.researchgate.net/publication/412304955_VANI_A_Behavioural_Simulation_Framework_for_Multilingual_Media_and_Information_Literacy_in_the_Age_of_Generative_AI"><b>ResearchGate Publication ID 412304955 →</b></a><br><i>DOI: 10.13140/RG.2.2.14674.88002 — "VANI: A Behavioural Simulation Framework for Multilingual MIL in the Age of Generative AI."</i></td>
 </tr>
 <tr>
-<td bgcolor="#FFF4D6"><b>📦 Complete Deliverables Drive</b></td>
-<td><a href="https://drive.google.com/drive/folders/1qHS26BenA5j-EFgkCyowmilLbKb28bNh?usp=sharing"><b>Technical Implementation & Assets Drive →</b></a><br><i>Comprehensive repository of slides, high-res diagrams, audio samples, and offline playbook resources.</i></td>
+<td bgcolor="#FFF4D6"><b>Technical Implementation & Assets</b></td>
+<td><a href="https://drive.google.com/drive/folders/1qHS26BenA5j-EFgkCyowmilLbKb28bNh?usp=sharing"><b>Complete Deliverables Drive →</b></a><br><i>Comprehensive repository of slides, high-res diagrams, audio samples, and offline playbook resources.</i></td>
 </tr>
 </table>
 
@@ -230,10 +230,10 @@ npm run build
 <tr>
 <td align="center" bgcolor="#FFF4D6">
 
-### 🟡 Learn to Pause. Learn to Verify. Play Your Part.
+### Learn to Pause. Learn to Verify. Play Your Part.
 
 **Project VANI — Verification & Algorithmic Literacy Network Initiative**  
-*Built for the UNESCO Youth Hackathon 2026 — India 🇮🇳*
+*Built for the UNESCO Youth Hackathon 2026 — India*
 
 </td>
 </tr>
