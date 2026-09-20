@@ -4,7 +4,7 @@
 <tr>
 <td align="center" bgcolor="#FFF4D6">
 
-# 🟡 Project VANI
+# Project VANI
 
 ### Verification & Algorithmic Literacy Network Initiative
 
@@ -54,7 +54,7 @@ VANI addresses the gap between **knowing what misinformation is** and **knowing 
 
 ---
 
-## 💡 The VANI Approach
+## The VANI Approach
 
 VANI turns MIL into a **behaviour-based simulation**.
 
@@ -101,20 +101,20 @@ An offline-friendly educational playbook that allows educators, youth organisati
 
 VANI uses controlled, purpose-built synthetic examples based on documented manipulation patterns.
 
-### 🎙️ The Familiar Voice
+### The Familiar Voice
 A cloned voice note that appears to come from a friend or relative and asks the user to urgently click, share, forward, or send something.
 
-### 📰 The Breaking Newsreader
+### The Breaking Newsreader
 A polished, professional-looking synthetic news clip presenting an event that never happened.
 
-### 🏛️ The Kind Official
+### The Kind Official
 A fabricated government-style announcement about a scholarship, welfare scheme, or public benefit designed to be shared because it appears helpful.
 
 These scenarios are designed to teach users how to identify manipulation **before they act on it**.
 
 ---
 
-## 🌏 Multilingual by Design
+## Multilingual by Design
 
 VANI begins with:
 
@@ -128,7 +128,7 @@ The long-term vision is to extend the model to other **regional and indigenous-l
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 VANI is designed to:
 
@@ -140,7 +140,7 @@ VANI is designed to:
 
 ---
 
-## 👥 Target Audience
+## Target Audience
 
 | Audience | Focus |
 |---|---|
@@ -150,7 +150,7 @@ VANI is designed to:
 
 ---
 
-## 🛠️ MVP & Technical Direction
+## MVP & Technical Direction
 
 The project is designed as a lightweight web application with an open-source architecture.
 
@@ -170,7 +170,7 @@ This keeps the first version technically feasible while preserving the central e
 
 ---
 
-## 📊 Success Metrics
+## Success Metrics
 
 The project proposes measuring impact through:
 
@@ -181,7 +181,7 @@ The project proposes measuring impact through:
 
 ---
 
-## ♻️ Sustainability & Scalability
+## Sustainability & Scalability
 
 VANI is intentionally resource-light.
 
@@ -200,7 +200,7 @@ This makes the model suitable for collaboration with:
 
 ---
 
-## 🔬 Research & Foundation
+## Research & Foundation
 
 VANI is supported by research into:
 
@@ -215,7 +215,7 @@ The project also includes a dedicated research paper examining VANI as a behavio
 
 ---
 
-## 🚀 Project Deliverables
+## Project Deliverables
 
 <table>
 <tr>
@@ -257,7 +257,7 @@ The concept is designed around a simple principle:
 
 ---
 
-## 👩‍💻 Team
+## Team
 
 ### Manasvi Gangrade — Team Lead
 Strategy, overall project direction, development, and design.
@@ -267,7 +267,7 @@ Concept development, content design, and presentation.
 
 ---
 
-## 🌱 Our Vision
+## Our Vision
 
 VANI started with a simple observation: misinformation rarely arrives with a warning label.
 
