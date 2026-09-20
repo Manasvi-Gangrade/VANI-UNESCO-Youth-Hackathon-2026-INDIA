@@ -196,6 +196,26 @@ export const GoogleTranslateWidget = memo(() => {
       script.async = true;
       document.body.appendChild(script);
     }
+
+    // Observer to continuously suppress any floating translate icon, edit badge, or banner
+    const observer = new MutationObserver(() => {
+      const elementsToHide = document.querySelectorAll(
+        '[class*="VIpgJd"], #goog-gt-tt, #goog-gt-vt, .goog-te-balloon-frame, .goog-te-banner-frame, iframe[id*=":1.container"], iframe[id*=":2.container"]'
+      );
+      elementsToHide.forEach((el) => {
+        const htmlEl = el as HTMLElement;
+        htmlEl.style.setProperty("display", "none", "important");
+        htmlEl.style.setProperty("visibility", "hidden", "important");
+        htmlEl.style.setProperty("opacity", "0", "important");
+        htmlEl.style.setProperty("pointer-events", "none", "important");
+      });
+      if (document.body.style.top && document.body.style.top !== "0px") {
+        document.body.style.top = "0px";
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+    return () => observer.disconnect();
   }, []);
 
   return (

@@ -212,18 +212,39 @@
 .goog-te-banner-frame,
 .goog-te-banner,
 .goog-te-balloon,
+.goog-te-balloon-frame,
 .goog-tooltip,
 .goog-tooltip:hover,
 #goog-gt-tt,
+#goog-gt-vt,
 .goog-text-highlight,
 .goog-logo-link,
 .goog-te-gadget-icon,
 .goog-te-gadget > span,
-.goog-te-gadget img {
+.goog-te-gadget img,
+[class*="VIpgJd"],
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd,
+.VIpgJd-y6T80-,
+iframe[id*=":1.container"],
+iframe[id*=":2.container"],
+iframe[class*="VIpgJd"],
+body > .skiptranslate:not(:has(#google_translate_element)) {
   display: none !important;
   visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
   box-shadow: none !important;
   background: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
 }
 
 /* Hide "Powered by" text by making container font size 0 */
