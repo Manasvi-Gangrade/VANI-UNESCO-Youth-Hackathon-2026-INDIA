@@ -40,12 +40,12 @@ Traditional MIL initiatives test definitions: *"What is a deepfake?"* or *"Defin
 
 ---
 
-## ⚡ Key Innovations & Live Features
+## Key Innovations & Live Features
 
 <table>
 <tr>
 <td width="50%" bgcolor="#FFF8E7">
-<h3>🎯 1. VaaniFeed Behavioral Simulator</h3>
+<h3>1. VaaniFeed Behavioral Simulator</h3>
 <ul>
   <li><b>10 Hyper-Realistic Post Cards:</b> Fabricated government scholarship circulars, WhatsApp voice note scams, live TV studio deepfakes, DBT UPI phishing, crowd rally visual contradictions, and verified citizen reports.</li>
   <li><b>The Freeze & The Reveal:</b> Like or share something manipulated and the simulator halts with dynamic Web Audio cues and step-by-step forensic proof.</li>
@@ -53,7 +53,7 @@ Traditional MIL initiatives test definitions: *"What is a deepfake?"* or *"Defin
 </ul>
 </td>
 <td width="50%" bgcolor="#FFF4D6">
-<h3>🌐 2. 230+ Multilingual & Voice Access</h3>
+<h3>2. 230+ Multilingual & Voice Access</h3>
 <ul>
   <li><b>230+ Indian & Global Languages:</b> Full translation covering all 22 official Eighth Schedule Indian languages (Hindi, Marathi, Tamil, Bengali, Telugu, Gujarati, Kannada, Malayalam, Odia, Punjabi, Assamese, Urdu, etc.) and 200+ world languages.</li>
   <li><b>Zero Google Branding:</b> Seamlessly integrated with customized UI controls, free from external popups, balloons, or branding clutter.</li>
@@ -63,7 +63,7 @@ Traditional MIL initiatives test definitions: *"What is a deepfake?"* or *"Defin
 </tr>
 <tr>
 <td width="50%" bgcolor="#FFF4D6">
-<h3>📚 3. VaaniKit (Offline Educator Playbook)</h3>
+<h3>3. VaaniKit (Offline Educator Playbook)</h3>
 <ul>
   <li><b>Zero-Connectivity Defense:</b> A complete offline methodology for classrooms, community panchayats, and youth clubs with no internet access.</li>
   <li><b>Downloadable Vector PDF:</b> Includes a 2-page high-resolution print guide (<code>VaaniKit.pdf</code>) with threat matrices and bilingual flashcards.</li>
@@ -71,7 +71,7 @@ Traditional MIL initiatives test definitions: *"What is a deepfake?"* or *"Defin
 </ul>
 </td>
 <td width="50%" bgcolor="#FFF8E7">
-<h3>🎙️ 4. Deepfake Audio Lab & Research</h3>
+<h3>4. Deepfake Audio Lab & Research</h3>
 <ul>
   <li><b>Interactive A/B Audio Quiz:</b> Hands-on side-by-side ear test contrasting authentic human speech against synthetic neural clones.</li>
   <li><b>Published Academic Paper:</b> Backed by formal ResearchGate publication: <i>"VANI: A Behavioural Simulation Framework for Multilingual Media and Information Literacy in the Age of Generative AI"</i> (DOI: 10.13140/RG.2.2.14674.88002).</li>
@@ -83,7 +83,7 @@ Traditional MIL initiatives test definitions: *"What is a deepfake?"* or *"Defin
 
 ---
 
-## 🎭 The 10 Scenarios in VaaniFeed
+## The 10 Scenarios in VaaniFeed
 
 VANI’s simulation feed presents controlled, purpose-built scenarios designed after real-world forensic threat vectors:
 
@@ -115,7 +115,7 @@ VANI natively bridges this divide:
 
 ---
 
-## 🛠️ Architecture & Technical Stack
+## Architecture & Technical Stack
 
 VANI is engineered for high performance, zero-cost operational sustainability, and instant global load times:
 
@@ -136,7 +136,7 @@ VANI is engineered for high performance, zero-cost operational sustainability, a
 
 ---
 
-## 🚀 Official Hackathon Deliverables
+## Official Hackathon Deliverables
 
 <table>
 <tr>
@@ -177,7 +177,7 @@ VANI is engineered for high performance, zero-cost operational sustainability, a
 
 ---
 
-## 👩‍💻 Project Team
+## Project Team
 
 <table>
 <tr>
@@ -200,7 +200,7 @@ Concept Development, Pedagogical Framework & Content Design<br>
 
 ---
 
-## 🏃 Local Development Setup
+## Local Development Setup
 
 To run Project VANI locally:
 
