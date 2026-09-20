@@ -512,7 +512,7 @@ function FreezePanel({
   onNext: () => void;
 }) {
   const { post, correct, action } = frozen;
-  const t = (v: Record<string, string>) => v[lang] ?? v.en ?? "";
+  const t = (v: Record<string, string>) => v[lang] ?? v["en"] ?? "";
 
   return (
     <div className="rise-in mt-5">
@@ -577,7 +577,7 @@ function ScoreScreen({
   results: Result[];
   onRestart: () => void;
 }) {
-  const t = (v: Record<string, string>) => v[lang] ?? v.en ?? "";
+  const t = (v: Record<string, string>) => v[lang] ?? v["en"] ?? "";
   const [copied, setCopied] = useState(false);
   const fakes = results.filter((r) => r.fake);
   const caughtFakes = fakes.filter((r) => r.correct).length;
@@ -599,7 +599,7 @@ function ScoreScreen({
   const byCategory = useMemo(() => {
     const map = new Map<string, { label: Record<string, string>; ok: number; total: number }>();
     for (const r of results) {
-      const key = r.category.en;
+      const key = r.category["en"] ?? "General";
       const e = map.get(key) ?? { label: r.category, ok: 0, total: 0 };
       e.total++;
       if (r.correct) e.ok++;
@@ -716,7 +716,7 @@ function ScoreScreen({
             <ColourBlockBanner tone="teal">{t(T.breakdown)}</ColourBlockBanner>
             <div className="mt-6 space-y-3">
               {byCategory.map((c, i) => (
-                <Reveal key={c.label.en} delay={i * 60}>
+                <Reveal key={c.label["en"] ?? i} delay={i * 60}>
                   <div className="card-pop bg-card p-4">
                     <div className="flex items-baseline justify-between gap-3">
                       <p className="font-display text-base">{t(c.label)}</p>

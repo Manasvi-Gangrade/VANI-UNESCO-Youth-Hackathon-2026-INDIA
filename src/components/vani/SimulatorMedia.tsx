@@ -71,7 +71,7 @@ export function playSound(type: "freeze" | "correct" | "wrong" | "click") {
 }
 
 export function SimulatorMedia({ post, lang, frozen }: SimulatorMediaProps) {
-  const t = (v?: Record<string, string>) => (v ? v[lang] ?? v.en ?? "" : "");
+  const t = (v?: Record<string, string>) => (v ? v[lang] ?? v["en"] ?? "" : "");
 
   // Voice Note State
   const [isPlaying, setIsPlaying] = useState(false);
