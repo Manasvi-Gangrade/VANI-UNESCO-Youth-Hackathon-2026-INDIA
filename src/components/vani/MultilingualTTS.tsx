@@ -8,6 +8,7 @@ import React, {
   memo,
 } from "react";
 import { Volume2, VolumeX, Languages } from "lucide-react";
+import { useRouterState } from "@tanstack/react-router";
 
 // --- GLOBAL TYPES FOR GOOGLE TRANSLATE ---
 declare global {
@@ -170,6 +171,42 @@ export const useTTS = () => {
 
 // --- PART 2: GOOGLE TRANSLATE WIDGET COMPONENT (ALL 230+ LANGUAGES, BRANDING HIDDEN) ---
 export const GoogleTranslateWidget = memo(() => {
+  const routerState = useRouterState();
+  const pathname = routerState?.location?.pathname ?? "/";
+
+  // Re-trigger translation whenever the user navigates to a new page
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const triggerRouteTranslation = () => {
+      const select = document.querySelector<HTMLSelectElement>(".goog-te-combo");
+      if (!select) return;
+
+      let lang = select.value;
+      if (!lang || lang === "en") {
+        const match = document.cookie.match(/googtrans=\/[^/]+\/([^;]+)/);
+        if (match && match[1] && match[1] !== "en") {
+          lang = match[1];
+        }
+      }
+
+      if (lang && lang !== "en") {
+        if (select.value !== lang) {
+          select.value = lang;
+        }
+        select.dispatchEvent(new Event("change"));
+      }
+    };
+
+    const t1 = setTimeout(triggerRouteTranslation, 180);
+    const t2 = setTimeout(triggerRouteTranslation, 550);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [pathname]);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -197,14 +234,37 @@ export const GoogleTranslateWidget = memo(() => {
       document.body.appendChild(script);
     }
 
+    // Persist language cookie with path=/ whenever user selects any language
+    const checkComboInterval = setInterval(() => {
+      const select = document.querySelector<HTMLSelectElement>(".goog-te-combo");
+      if (select && !select.getAttribute("data-vani-bound")) {
+        select.setAttribute("data-vani-bound", "true");
+        select.addEventListener("change", () => {
+          const val = select.value;
+          if (val) {
+            document.cookie = `googtrans=/en/${val}; path=/;`;
+            if (window.location.hostname) {
+              document.cookie = `googtrans=/en/${val}; path=/; domain=${window.location.hostname};`;
+            }
+          }
+        });
+        clearInterval(checkComboInterval);
+      }
+    }, 500);
+
     // Observer to continuously suppress only floating translate icon, edit badge, or banner outside #root
     const observer = new MutationObserver(() => {
       const elementsToHide = document.querySelectorAll(
         'body > [class*="VIpgJd"], body > div[class*="VIpgJd"], #goog-gt-tt, #goog-gt-vt, .goog-te-balloon-frame, .goog-te-banner-frame, iframe[id*=":1.container"], iframe[id*=":2.container"]'
       );
       elementsToHide.forEach((el) => {
-        // Guarantee that elements inside our app root are NEVER hidden
-        if (el.closest("#root") || el.closest("#google_translate_element")) {
+        // Guarantee that elements inside our app root or main are NEVER hidden
+        if (
+          el.closest("main") ||
+          el.closest("header") ||
+          el.closest("footer") ||
+          el.closest("#google_translate_element")
+        ) {
           return;
         }
         const htmlEl = el as HTMLElement;
@@ -219,7 +279,11 @@ export const GoogleTranslateWidget = memo(() => {
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
-    return () => observer.disconnect();
+
+    return () => {
+      clearInterval(checkComboInterval);
+      observer.disconnect();
+    };
   }, []);
 
   return (

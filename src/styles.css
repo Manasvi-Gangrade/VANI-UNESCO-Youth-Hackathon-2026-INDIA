@@ -249,8 +249,14 @@ body > .skiptranslate:not(:has(#google_translate_element)) {
 }
 
 /* Guarantee that translated content inside the app never disappears on hover */
-#root font,
-#root font * {
+body font,
+body font *,
+main font,
+main font *,
+header font,
+header font *,
+footer font,
+footer font * {
   display: inline !important;
   visibility: visible !important;
   opacity: 1 !important;
