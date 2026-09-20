@@ -106,7 +106,7 @@ function MeetVani() {
         <Clover className="left-[5%] bottom-0 h-16 w-16" delay={1.1} />
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
           <ColourBlockBanner tone="tangerine" size="lg">
-            Meet VANI
+            <span className="notranslate" translate="no">Meet VANI</span>
           </ColourBlockBanner>
         </div>
       </div>
@@ -117,11 +117,11 @@ function MeetVani() {
             <p className="text-lg leading-relaxed sm:text-xl">
               Picture the app you already use every day — that fast, familiar, thumb-scrolling feed.
               Now imagine that feed is quietly designed to make you sharper every time you touch it.
-              That’s VANI.
+              That’s <span className="notranslate font-bold" translate="no">VANI</span>.
             </p>
             <div className="mt-6 rounded-2xl border-[3px] border-foreground bg-secondary p-5 shadow-pop">
               <p className="text-sm sm:text-base">
-                In UNESCO’s own format terms, VANI is an <strong>Application/Website</strong> at its
+                In UNESCO’s own format terms, <span className="notranslate font-bold" translate="no">VANI</span> is an <strong>Application/Website</strong> at its
                 core, a <strong>Game</strong> in how it’s experienced, and an{" "}
                 <strong>Educational Toolkit</strong> in what it leaves behind.
               </p>

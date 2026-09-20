@@ -63,7 +63,11 @@ const CARDS = [
     to: "/meet-vani",
     tone: "forest" as const,
     icon: <Sparkles className="h-7 w-7" />,
-    title: "Meet VANI",
+    title: (
+      <>
+        Meet <span className="notranslate" translate="no">VANI</span>
+      </>
+    ),
     description: "The feed that quietly makes you sharper every time you touch it.",
   },
   {
@@ -128,7 +132,11 @@ const DELIVERABLES = [
   {
     icon: <Github className="h-6 w-6" />,
     title: "MVP POC Code Repo",
-    note: "Open GitHub repository for Project VANI.",
+    note: (
+      <>
+        Open GitHub repository for <span className="notranslate" translate="no">Project VANI</span>.
+      </>
+    ),
     url: "https://github.com/Manasvi-Gangrade/VANI-UNESCO-Youth-Hackathon-2026-INDIA",
   },
   {
@@ -140,7 +148,11 @@ const DELIVERABLES = [
   {
     icon: <FileText className="h-6 w-6" />,
     title: "Research Paper",
-    note: "ResearchGate publication on VANI simulation framework.",
+    note: (
+      <>
+        ResearchGate publication on <span className="notranslate" translate="no">VANI</span> simulation framework.
+      </>
+    ),
     url: "https://www.researchgate.net/publication/412304955_VANI_A_Behavioural_Simulation_Framework_for_Multilingual_Media_and_Information_Literacy_in_the_Age_of_Generative_AI",
   },
   {
@@ -167,12 +179,14 @@ function Home() {
               <p className="mb-3 inline-block rounded-full border-[3px] border-foreground bg-card px-4 py-1 text-xs font-black tracking-[0.2em] uppercase">
                 UNESCO Youth Hackathon · MIL
               </p>
-              <h1 className="font-display text-5xl leading-[0.95] sm:text-7xl">Project VANI</h1>
+              <h1 className="font-display text-5xl leading-[0.95] sm:text-7xl notranslate" translate="no">
+                Project VANI
+              </h1>
               <p className="mt-3 font-display text-xl sm:text-2xl">
                 Verification &amp; Algorithmic Literacy Network Initiative
               </p>
               <p className="mt-4 max-w-xl text-base italic sm:text-lg">
-                “Vani” means voice. This project exists so no young person’s voice — in any language
+                <span className="notranslate" translate="no">“Vani”</span> means voice. This project exists so no young person’s voice — in any language
                 — is left undefended against a lie that was never even human to begin with.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
@@ -183,7 +197,7 @@ function Home() {
                   Read Full Proposal
                 </PillButton>
                 <PillButton to="/meet-vani" tone="cream">
-                  Meet VANI
+                  <span className="notranslate" translate="no">Meet VANI</span>
                 </PillButton>
               </div>
             </Reveal>
@@ -208,7 +222,7 @@ function Home() {
               trust it?
             </p>
             <p className="mt-3 text-base text-muted-foreground sm:text-lg">
-              Chances are, you didn't check a source. You felt something, and you scrolled on. That single, split-second moment — not the classroom, not the textbook — is where most of us actually learn, or fail to learn, media literacy. Project VANI starts exactly there.
+              Chances are, you didn't check a source. You felt something, and you scrolled on. That single, split-second moment — not the classroom, not the textbook — is where most of us actually learn, or fail to learn, media literacy. <span className="notranslate font-bold" translate="no">Project VANI</span> starts exactly there.
             </p>
           </div>
         </Reveal>

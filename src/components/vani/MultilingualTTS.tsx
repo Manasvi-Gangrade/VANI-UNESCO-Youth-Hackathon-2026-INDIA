@@ -197,12 +197,16 @@ export const GoogleTranslateWidget = memo(() => {
       document.body.appendChild(script);
     }
 
-    // Observer to continuously suppress any floating translate icon, edit badge, or banner
+    // Observer to continuously suppress only floating translate icon, edit badge, or banner outside #root
     const observer = new MutationObserver(() => {
       const elementsToHide = document.querySelectorAll(
-        '[class*="VIpgJd"], #goog-gt-tt, #goog-gt-vt, .goog-te-balloon-frame, .goog-te-banner-frame, iframe[id*=":1.container"], iframe[id*=":2.container"]'
+        'body > [class*="VIpgJd"], body > div[class*="VIpgJd"], #goog-gt-tt, #goog-gt-vt, .goog-te-balloon-frame, .goog-te-banner-frame, iframe[id*=":1.container"], iframe[id*=":2.container"]'
       );
       elementsToHide.forEach((el) => {
+        // Guarantee that elements inside our app root are NEVER hidden
+        if (el.closest("#root") || el.closest("#google_translate_element")) {
+          return;
+        }
         const htmlEl = el as HTMLElement;
         htmlEl.style.setProperty("display", "none", "important");
         htmlEl.style.setProperty("visibility", "hidden", "important");

@@ -217,20 +217,15 @@
 .goog-tooltip:hover,
 #goog-gt-tt,
 #goog-gt-vt,
-.goog-text-highlight,
 .goog-logo-link,
 .goog-te-gadget-icon,
 .goog-te-gadget > span,
 .goog-te-gadget img,
-[class*="VIpgJd"],
-.VIpgJd-ZVi9od-ORHb-OEVmcd,
-.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
-.VIpgJd-ZVi9od-aZ2wEe-OiiCO,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd,
-.VIpgJd-y6T80-,
+body > [class*="VIpgJd"],
+body > div[class*="VIpgJd"],
+body > iframe[class*="VIpgJd"],
 iframe[id*=":1.container"],
 iframe[id*=":2.container"],
-iframe[class*="VIpgJd"],
 body > .skiptranslate:not(:has(#google_translate_element)) {
   display: none !important;
   visibility: hidden !important;
@@ -245,6 +240,20 @@ body > .skiptranslate:not(:has(#google_translate_element)) {
   position: absolute !important;
   top: -9999px !important;
   left: -9999px !important;
+}
+
+/* Neutralize Google's hover tooltip text highlight so text doesn't change background or disappear */
+.goog-text-highlight {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Guarantee that translated content inside the app never disappears on hover */
+#root font,
+#root font * {
+  display: inline !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Hide "Powered by" text by making container font size 0 */

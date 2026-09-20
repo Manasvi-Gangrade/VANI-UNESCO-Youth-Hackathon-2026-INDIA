@@ -41,7 +41,11 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen flex-col bg-background">
       <header className="sticky top-0 z-50 border-b-[3px] border-foreground bg-sunny">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6">
-          <Link to="/" className="font-display text-2xl tracking-tight shrink-0">
+          <Link
+            to="/"
+            className="font-display text-2xl tracking-tight shrink-0 notranslate"
+            translate="no"
+          >
             VANI<span className="text-grape">.</span>
           </Link>
           <nav className="hidden items-center gap-0.5 lg:flex">
@@ -70,7 +74,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
       <footer className="border-t-[3px] border-foreground bg-forest text-forest-foreground">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-10 sm:px-6">
-          <p className="font-display text-2xl">Project VANI</p>
+          <p className="font-display text-2xl notranslate" translate="no">
+            Project VANI
+          </p>
           <p className="max-w-xl text-sm opacity-90">
             Verification &amp; Algorithmic Literacy Network Initiative — a youth-built Media and
             Information Literacy prototype for the UNESCO Youth Hackathon.

@@ -88,8 +88,8 @@ export function IconCard({
   to?: string;
   tone: Tone;
   icon: ReactNode;
-  title: string;
-  description: string;
+  title: ReactNode;
+  description: ReactNode;
   featured?: boolean;
 }) {
   const inner = (
