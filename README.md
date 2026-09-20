@@ -4,13 +4,14 @@
 <tr>
 <td align="center" bgcolor="#FFF4D6">
 
-# Project VANI
+# 🟡 Project VANI
 
 ### Verification & Algorithmic Literacy Network Initiative
 
-**Play Your Part: Youth Designing the Future of Media and Information Literacy**
+**UNESCO Youth Hackathon 2026 India**  
+*Play Your Part: Youth Designing the Future of Media and Information Literacy*
 
-*A behaviour-based, multilingual Media & Information Literacy experience designed to help young people recognise AI-generated and algorithmically amplified misinformation.*
+A behaviour-based, multilingual Media & Information Literacy (MIL) simulation and web application that trains young minds to spot AI deepfakes, synthetic voice clones, and algorithmically amplified misinformation at the exact split-second before they hit share.
 
 </td>
 </tr>
@@ -18,9 +19,11 @@
 
 <br>
 
-[![UNESCO Youth Hackathon 2026](https://img.shields.io/badge/UNESCO-Youth%20Hackathon%202026-F4C430?style=for-the-badge)](#)
-[![Open Source](https://img.shields.io/badge/Open%20Source-Yes-FFF4D6?style=for-the-badge&labelColor=222222)](#)
-[![MVP](https://img.shields.io/badge/Status-MVP%20POC-F4C430?style=for-the-badge)](#)
+[![UNESCO Youth Hackathon 2026](https://img.shields.io/badge/UNESCO-Youth%20Hackathon%202026-F4C430?style=for-the-badge&logoColor=black)](#)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20Production-10b981?style=for-the-badge&logo=vercel)](https://vani-verification-algorithmic-liter.vercel.app)
+[![ResearchGate Paper](https://img.shields.io/badge/DOI-10.13140%2FRG.2.2.14674.88002-00CCBB?style=for-the-badge&logo=researchgate)](https://www.researchgate.net/publication/412304955_VANI_A_Behavioural_Simulation_Framework_for_Multilingual_Media_and_Information_Literacy_in_the_Age_of_Generative_AI)
+[![Languages](https://img.shields.io/badge/Languages-230%2B%20Indian%20%26%20Global-purple?style=for-the-badge&logo=google-translate)](#)
+[![Open Source](https://img.shields.io/badge/Open%20Source-MIT-222222?style=for-the-badge)](#)
 
 </div>
 
@@ -28,256 +31,198 @@
 
 ## 🌼 What is VANI?
 
-**VANI — Verification & Algorithmic Literacy Network Initiative** — is a youth-focused Media and Information Literacy (MIL) project built around one simple idea:
+**Project VANI (Verification & Algorithmic Literacy Network Initiative)** is an evidence-based Media and Information Literacy (MIL) platform built around one fundamental reality:
 
-> **People should learn to recognise misinformation at the exact moment they are about to believe, like, share, or forward it.**
+> **People don't learn media literacy in a lecture hall. They learn it — or fail to learn it — in the 3 seconds before their thumb decides to like, share, or forward.**
 
-Traditional MIL often tests whether someone can *define* misinformation. VANI instead creates a realistic, scrolling-based environment where users encounter synthetic misinformation, pause before acting on it, discover the signals they missed, and build resilience through repeated practice.
-
-The pilot focuses on **regional-language youth in India**, beginning with **Hindi, Marathi, and Tamil**, while keeping the architecture extensible to additional languages and communities.
-
----
-
-## 🧩 The Problem
-
-The way Media and Information Literacy is taught has not fully caught up with the way misinformation now reaches young people.
-
-Today's misinformation can be:
-
-- AI-generated and visually convincing
-- Delivered through cloned voices and synthetic faces
-- Amplified by algorithm-driven feeds
-- Presented as breaking news, government announcements, or messages from familiar people
-- Created and circulated in regional languages where existing safety systems may be weaker
-
-VANI addresses the gap between **knowing what misinformation is** and **knowing what to do in the few seconds before sharing it**.
+Traditional MIL initiatives test definitions: *"What is a deepfake?"* or *"Define confirmation bias."*  
+**VANI replaces theoretical testing with a live behavioral reflex simulator:** users scroll an authentic-feeling feed, make instinctive choices, and the instant they touch manipulated media, the feed freezes mid-scroll, names the forensic tell they missed, and builds their verified Resilience Score.
 
 ---
 
-## The VANI Approach
-
-VANI turns MIL into a **behaviour-based simulation**.
-
-Instead of giving users a lecture or a conventional quiz, VANI places them inside a familiar scrolling experience.
-
-### The core loop
-
-**Scroll → Encounter → Pause → Investigate → Learn → Improve**
-
-The user encounters a suspicious post and is allowed to react naturally. When they attempt to engage with synthetic misinformation, VANI introduces a calm intervention rather than simply marking the user as "wrong".
-
-The goal is not to shame the user.
-
-The goal is to make them think:
-
-> **“Wait. What did I miss?”**
-
----
-
-## 📱 How VANI Works
+## ⚡ Key Innovations & Live Features
 
 <table>
 <tr>
-<td bgcolor="#FFF8E7"><b>01 — VaaniFeed</b><br><br>
-A familiar, fast-scrolling content feed designed around the digital environments young people already use, delivered in their regional language.</td>
-<td bgcolor="#FFF4D6"><b>02 — The Freeze</b><br><br>
-When a user attempts to like, share, or forward synthetic misinformation, the feed pauses and gives them a moment to reconsider.</td>
+<td width="50%" bgcolor="#FFF8E7">
+<h3>🎯 1. VaaniFeed Behavioral Simulator</h3>
+<ul>
+  <li><b>10 Hyper-Realistic Post Cards:</b> Fabricated government scholarship circulars, WhatsApp voice note scams, live TV studio deepfakes, DBT UPI phishing, crowd rally visual contradictions, and verified citizen reports.</li>
+  <li><b>The Freeze & The Reveal:</b> Like or share something manipulated and the simulator halts with dynamic Web Audio cues and step-by-step forensic proof.</li>
+  <li><b>Personalized UNESCO Certificate:</b> Live score evaluation with unique verification ID (<code>VANI-2026-IND-XXXX</code>), custom participant name input, printable certificate view, and 1-click WhatsApp share.</li>
+</ul>
+</td>
+<td width="50%" bgcolor="#FFF4D6">
+<h3>🌐 2. 230+ Multilingual & Voice Access</h3>
+<ul>
+  <li><b>230+ Indian & Global Languages:</b> Full translation covering all 22 official Eighth Schedule Indian languages (Hindi, Marathi, Tamil, Bengali, Telugu, Gujarati, Kannada, Malayalam, Odia, Punjabi, Assamese, Urdu, etc.) and 200+ world languages.</li>
+  <li><b>Zero Google Branding:</b> Seamlessly integrated with customized UI controls, free from external popups, balloons, or branding clutter.</li>
+  <li><b>Web Speech TTS Hover Reader:</b> Instant text-to-speech audio reader toggleable from the navbar for accessibility in low-literacy and rural areas.</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td bgcolor="#FFF4D6"><b>03 — The Reveal</b><br><br>
-VANI explains the specific signals that could have exposed the manipulation — from lip-sync inconsistencies to suspicious timestamps or voice artefacts.</td>
-<td bgcolor="#FFF8E7"><b>04 — Resilience Score</b><br><br>
-A simple session score turns learning into visible progress and encourages users to build confidence over repeated simulations.</td>
-</tr>
-<tr>
-<td colspan="2" bgcolor="#FFF4D6"><b>05 — VaaniKit</b><br><br>
-An offline-friendly educational playbook that allows educators, youth organisations, and community leaders to conduct VANI-style learning sessions beyond the app.</td>
+<td width="50%" bgcolor="#FFF4D6">
+<h3>📚 3. VaaniKit (Offline Educator Playbook)</h3>
+<ul>
+  <li><b>Zero-Connectivity Defense:</b> A complete offline methodology for classrooms, community panchayats, and youth clubs with no internet access.</li>
+  <li><b>Downloadable Vector PDF:</b> Includes a 2-page high-resolution print guide (<code>VaaniKit.pdf</code>) with threat matrices and bilingual flashcards.</li>
+  <li><b>45-Minute Lesson Plan:</b> Practical peer-to-peer exercises: Scammer vs Auditor pair-play, Audio Forensics ear-training, and Verification Checklist.</li>
+</ul>
+</td>
+<td width="50%" bgcolor="#FFF8E7">
+<h3>🎙️ 4. Deepfake Audio Lab & Research</h3>
+<ul>
+  <li><b>Interactive A/B Audio Quiz:</b> Hands-on side-by-side ear test contrasting authentic human speech against synthetic neural clones.</li>
+  <li><b>Published Academic Paper:</b> Backed by formal ResearchGate publication: <i>"VANI: A Behavioural Simulation Framework for Multilingual Media and Information Literacy in the Age of Generative AI"</i> (DOI: 10.13140/RG.2.2.14674.88002).</li>
+  <li><b>Audited Forensics:</b> Tail drop cadence, acoustic flatness, and typographic inconsistencies highlighted.</li>
+</ul>
+</td>
 </tr>
 </table>
 
 ---
 
-## 🎭 What Kind of Misinformation Does VANI Simulate?
+## 🎭 The 10 Scenarios in VaaniFeed
 
-VANI uses controlled, purpose-built synthetic examples based on documented manipulation patterns.
+VANI’s simulation feed presents controlled, purpose-built scenarios designed after real-world forensic threat vectors:
 
-### The Familiar Voice
-A cloned voice note that appears to come from a friend or relative and asks the user to urgently click, share, forward, or send something.
-
-### The Breaking Newsreader
-A polished, professional-looking synthetic news clip presenting an event that never happened.
-
-### The Kind Official
-A fabricated government-style announcement about a scholarship, welfare scheme, or public benefit designed to be shared because it appears helpful.
-
-These scenarios are designed to teach users how to identify manipulation **before they act on it**.
-
----
-
-## Multilingual by Design
-
-VANI begins with:
-
-**Hindi · Marathi · Tamil**
-
-The content architecture is designed so that additional languages can be introduced through the content library without rebuilding the core application.
-
-The long-term vision is to extend the model to other **regional and indigenous-language communities globally**.
-
-> **One tool. Every voice.**
+| ID | Scenario Name | Type | Forensic Tell / Teaching Vector |
+|:---|:---|:---|:---|
+| **01** | **District Scholarship Notice** | Forged Circular | Mismatched font weights on extended deadline date; unverified domain URL; artificial urgency trap. |
+| **02** | **Community Library Bookshelf** | Authentic Post | Verified camera EXIF metadata (`Shot on iPhone 13`); raw check passed; genuine community contribution. |
+| **03** | **Voice Note: Home Remedy Cure** | Voice Clone | 18s synthetic voice note; robotic tail at end of sentence; no natural breath acoustics; forwarded many times tag. |
+| **04** | **Coastal Storm Warning** | Regional Alert | Cross-referenced district IMD weather bulletin number; authoritative source. |
+| **05** | **TV Studio Deepfake Broadcast** | News Video | Artificial blinking frequency; lip-sync micro-latency; anchor neck artifact blur under live studio lights. |
+| **06** | **DBT ₹5,000 Scheme Banner** | UPI Phishing | Directs user to enter UPI PIN to receive money (Entering a PIN *only* deducts funds). |
+| **07** | **Ward Sanitation Public Dataset** | Civic Open Data | Unmanipulated tabular municipal ward spending data from verified portal. |
+| **08** | **Recycled Election Rally** | Recycled Media | Background street signage in Cyrillic European script; contradictory light-angle shadow markers. |
+| **09** | **Camera Permission Leak** | Monospace Terminal | Fabricated "insider leak" alleging hidden background camera recording without authorization. |
+| **10** | **Civic Self-Correction Post** | Transparency | Journalistic retraction openly acknowledging previous report error and issuing verified correction. |
 
 ---
 
-## Objectives
+## 🌍 Multilingual by Design: 230+ Indian & Global Languages Everywhere
 
-VANI is designed to:
+Misinformation travels fastest in regional and vernacular languages where automated moderation tools and fact-checking resources are scarce.
 
-1. Shift MIL evaluation from rote, text-based testing to behaviour-based learning.
-2. Build youth resilience against AI-generated synthetic misinformation.
-3. Deliver MIL training natively in Indian regional languages.
-4. Provide a low-cost, open-source model that educators and youth organisations can adopt.
-5. Create a scalable foundation for multilingual MIL education.
-
----
-
-## Target Audience
-
-| Audience | Focus |
-|---|---|
-| **Primary** | Regional-language youth aged 18–30 in India |
-| **Secondary** | Educators, community leaders, and youth organisations |
-| **Long-term** | Regional and indigenous-language youth communities globally |
+VANI natively bridges this divide:
+- **All 22 Eighth Schedule Indian Languages:** Hindi (हिन्दी), Marathi (मराठी), Tamil (தமிழ்), Bengali (বাংলা), Telugu (తెలుగు), Gujarati (ગુજરાતી), Kannada (ಕನ್ನಡ), Malayalam (മലയാളം), Odia (ଓଡ଼ିଆ), Punjabi (ਪੰਜਾਬੀ), Assamese (অসমীয়া), Urdu (اردو), Sanskrit (संस्कृतम्), Maithili, Santali, Kashmiri, Nepali, Konkani, Sindhi, Dogri, Bodo, and Manipuri.
+- **200+ International & Regional Languages:** Spanish, French, Arabic, Swahili, Portuguese, German, Japanese, Bahasa Indonesia, and indigenous regional dialects worldwide.
+- **Client-Side SPA Route Synchronization:** TanStack Router events automatically re-trigger translation passes on every route transition (`/who-we-are`, `/the-problem`, `/simulator`, `/vaanikit`, `/proposal`, `/our-vision`, `/faq`).
+- **Brand Protection:** Proprietary brand markers (`VANI`, `Project VANI`, `VaaniKit`) are safeguarded with `translate="no"` so they never mutate into literal dictionary translations.
+- **Audio Accessibility:** Integrated Web Speech synthesis audio reader allows users to listen to any text in their chosen language on hover.
 
 ---
 
-## MVP & Technical Direction
+## 🛠️ Architecture & Technical Stack
 
-The project is designed as a lightweight web application with an open-source architecture.
+VANI is engineered for high performance, zero-cost operational sustainability, and instant global load times:
 
-The planned implementation uses:
-
-- **Frontend:** Next.js
-- **Backend:** Lightweight, low-cost database architecture
-- **Deployment:** Free-tier friendly infrastructure
-- **Content:** Modular, multilingual content library
-- **Distribution:** Open-source GitHub repository
-
-The MVP focuses on the core experience:
-
-**Feed → Detection Trap → Freeze → Reveal → Score**
-
-This keeps the first version technically feasible while preserving the central educational intervention.
-
----
-
-## Success Metrics
-
-The project proposes measuring impact through:
-
-- **200+ pilot users** completing at least one simulation session during the initial three-month pilot
-- Improvement in users' ability to identify synthetic content through pre- and post-session measurement
-- Growth in the number of supported regional languages/dialects
-- Number of VaaniKit downloads by educators and community leaders
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                          Project VANI Stack                            │
+├────────────────────────────────────────────────────────────────────────┤
+│  Framework      │ TanStack Start (SSR) + TanStack React Router 1.170   │
+│  UI & Styling   │ React 19 + Tailwind CSS v4 + Radix UI Primitives     │
+│  Server Engine  │ Nitro 3.0 (Vercel Build Output API v3 Integration)   │
+│  Build Tool     │ Vite 8.2 + TypeScript 5.8 (Strict Mode Enabled)     │
+│  Document Gen   │ pdf-lib (Vector 2-Page Offline VaaniKit Generator)  │
+│  Audio & Sound  │ Web Audio API (Synthesized Effects) + Web Speech API │
+│  Translation    │ Universal 230+ Language Engine + MutationObserver    │
+│  Deployment     │ Vercel Serverless & Edge Fluid Compute               │
+└────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## Sustainability & Scalability
-
-VANI is intentionally resource-light.
-
-The project is designed around a **single open-source codebase**, free-tier infrastructure, and a modular content architecture.
-
-Adding a new language or region primarily involves expanding the relevant content and language assets rather than rebuilding the entire application.
-
-This makes the model suitable for collaboration with:
-
-- Schools and educators
-- Youth organisations
-- NGOs
-- Community leaders
-- Developers
-- Local-language media literacy initiatives
-
----
-
-## Research & Foundation
-
-VANI is supported by research into:
-
-- Media and Information Literacy
-- Generative AI and synthetic misinformation
-- Deepfakes and algorithmic amplification
-- Multilingual digital safety
-- Behaviour-based learning
-- Regional-language inclusion
-
-The project also includes a dedicated research paper examining VANI as a behavioural simulation framework for multilingual MIL in the age of generative AI.
-
----
-
-## Project Deliverables
+## 🚀 Official Hackathon Deliverables
 
 <table>
 <tr>
-<td bgcolor="#FFF4D6"><b>🎥 Video</b></td>
-<td><a href="https://drive.google.com/drive/folders/1eEURK2jyGT6DxL23uoxSBw0S9a-epPkA?usp=sharing">View Project Videos →</a></td>
+<td bgcolor="#FFF4D6" width="30%"><b>🎥 Pitch Video & Walkthrough</b></td>
+<td><a href="https://drive.google.com/drive/folders/1eEURK2jyGT6DxL23uoxSBw0S9a-epPkA?usp=sharing"><b>Google Drive Video Folder →</b></a><br><i>Complete 3-minute presentation, system walk-through, and architectural demo.</i></td>
 </tr>
 <tr>
-<td bgcolor="#FFF8E7"><b>💻 MVP POC GitHub Repository</b></td>
-<td><a href="https://github.com/Manasvi-Gangrade/VANI-UNESCO-Youth-Hackathon-2026-INDIA">View Source Code →</a></td>
+<td bgcolor="#FFF8E7"><b>💻 Live GitHub Repository</b></td>
+<td><a href="https://github.com/Manasvi-Gangrade/VANI-UNESCO-Youth-Hackathon-2026-INDIA"><b>GitHub: Manasvi-Gangrade/VANI... →</b></a><br><i>Clean open-source repository with full history, automated tests, and Vite build configuration.</i></td>
 </tr>
 <tr>
-<td bgcolor="#FFF4D6"><b>🌐 Deployed MVP</b></td>
-<td><a href="https://vani-verification-algorithmic-liter.vercel.app">Open VANI →</a></td>
+<td bgcolor="#FFF4D6"><b>🌐 Live Deployed Application</b></td>
+<td><a href="https://vani-verification-algorithmic-liter.vercel.app"><b>vani-verification-algorithmic-liter.vercel.app →</b></a><br><i>Production deployment running on Vercel with SSR, sub-second route transitions, and responsive mobile UX.</i></td>
 </tr>
 <tr>
-<td bgcolor="#FFF8E7"><b>📄 Research Paper</b></td>
-<td><a href="https://www.researchgate.net/publication/412304955_VANI_A_Behavioural_Simulation_Framework_for_Multilingual_Media_and_Information_Literacy_in_the_Age_of_Generative_AI">Read the Research Paper →</a></td>
+<td bgcolor="#FFF8E7"><b>📄 Published Research Paper</b></td>
+<td><a href="https://www.researchgate.net/publication/412304955_VANI_A_Behavioural_Simulation_Framework_for_Multilingual_Media_and_Information_Literacy_in_the_Age_of_Generative_AI"><b>ResearchGate Publication ID 412304955 →</b></a><br><i>DOI: 10.13140/RG.2.2.14674.88002 — "VANI: A Behavioural Simulation Framework for Multilingual MIL in the Age of Generative AI."</i></td>
 </tr>
 <tr>
-<td bgcolor="#FFF4D6"><b>📦 Additional Deliverables</b></td>
-<td><a href="https://drive.google.com/drive/folders/1qHS26BenA5j-EFgkCyowmilLbKb28bNh?usp=sharing">Technical Implementation, MVP POC Video & More →</a></td>
+<td bgcolor="#FFF4D6"><b>📦 Complete Deliverables Drive</b></td>
+<td><a href="https://drive.google.com/drive/folders/1qHS26BenA5j-EFgkCyowmilLbKb28bNh?usp=sharing"><b>Technical Implementation & Assets Drive →</b></a><br><i>Comprehensive repository of slides, high-res diagrams, audio samples, and offline playbook resources.</i></td>
 </tr>
 </table>
 
 ---
 
-## 🏆 UNESCO Youth Hackathon 2026
+## 🏆 UNESCO Youth Hackathon 2026 Alignment
 
-**Theme:**  
-### *Play Your Part: Youth Designing the Future of Media and Information Literacy*
+**Theme:** *Play Your Part: Youth Designing the Future of Media and Information Literacy*
 
-VANI directly aligns with the challenge by addressing the gap between **MIL policy and real-world digital behaviour**, while combining:
-
-**AI & MIL · MIL Education · Youth Empowerment · Community Impact · Multilingual Inclusion**
-
-The concept is designed around a simple principle:
-
-> **MIL should not only teach young people what misinformation looks like. It should help them practise what to do when misinformation looks real.**
-
----
-
-## Team
-
-### Manasvi Gangrade — Team Lead
-Strategy, overall project direction, development, and design.
-
-### Suhani Sharma — Co-Lead
-Concept development, content design, and presentation.
+| UNESCO Hackathon Focus Area | How Project VANI Delivers |
+|:---|:---|
+| **AI & Media Literacy** | Teaches real-time detection of synthetic voice clones, neural deepfakes, and algorithmic engagement traps. |
+| **Youth Empowerment** | Designed by youth for youth (18–30) — converts abstract media literacy policies into a gaming simulation. |
+| **Multilingual Inclusion** | Supports 230+ languages, prioritizing Indian regional languages often bypassed by mainstream trust-and-safety tools. |
+| **Offline & Grassroots Reach** | VaaniKit playbook delivers MIL education into classrooms and rural centers with zero connectivity. |
+| **Scalable Open Infrastructure** | Built on lightweight, open-source web tech with zero recurring backend maintenance cost. |
 
 ---
 
-## Our Vision
+## 👩‍💻 Project Team
 
-VANI started with a simple observation: misinformation rarely arrives with a warning label.
+<table>
+<tr>
+<td align="center" width="50%" bgcolor="#FFF4D6">
+<h3>Manasvi Gangrade</h3>
+<b>Team Lead</b><br>
+Strategy, System Architecture, Full-Stack Engineering & Design<br>
+<sub>B.Tech in Computer Science & Engineering</sub><br>
+<a href="mailto:gangrademanasvi@gmail.com">gangrademanasvi@gmail.com</a>
+</td>
+<td align="center" width="50%" bgcolor="#FFF8E7">
+<h3>Suhani Sharma</h3>
+<b>Co-Lead</b><br>
+Concept Development, Pedagogical Framework & Content Design<br>
+<sub>UNESCO Youth Hackathon 2026 Contributor</sub><br>
+<a href="https://github.com/Manasvi-Gangrade/VANI-UNESCO-Youth-Hackathon-2026-INDIA">Project VANI Team</a>
+</td>
+</tr>
+</table>
 
-It arrives as a video from a friend, a voice note from a relative, a breaking-news clip, or a helpful-looking government announcement.
+---
 
-The most important moment is often the few seconds **before** someone presses Share.
+## 🏃 Local Development Setup
 
-**VANI is built for that moment.**
+To run Project VANI locally:
 
-<br>
+```bash
+# 1. Clone the repository
+git clone https://github.com/Manasvi-Gangrade/VANI-UNESCO-Youth-Hackathon-2026-INDIA.git
+cd VANI-UNESCO-Youth-Hackathon-2026-INDIA
+
+# 2. Install dependencies
+npm install
+
+# 3. Start local development server
+npm run dev
+
+# 4. Open in browser
+# http://localhost:3000/ or http://localhost:5173/
+
+# 5. Production build test
+npm run build
+```
+
+---
 
 <div align="center">
 
@@ -287,18 +232,11 @@ The most important moment is often the few seconds **before** someone presses Sh
 
 ### 🟡 Learn to Pause. Learn to Verify. Play Your Part.
 
-**Project VANI — Verification & Algorithmic Literacy Network Initiative**
+**Project VANI — Verification & Algorithmic Literacy Network Initiative**  
+*Built for the UNESCO Youth Hackathon 2026 — India 🇮🇳*
 
 </td>
 </tr>
 </table>
-
-</div>
-
----
-
-<div align="center">
-
-Made for the **UNESCO Youth Hackathon 2026 — India 🇮🇳**
 
 </div>
